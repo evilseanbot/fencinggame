@@ -1,0 +1,130 @@
+Fencing Sim outreach:
+
+* Youtube video:
+
+1 minute long.
+
+Script:
+
+- Introduce who I Am.
+- Talk about Fencing. <- Me, my roommate and my brother do it.
+- Lacking in time to commit to it.
+- Talk about the project:
+  - Want to make a serious martial art game, where a priority is on matching techniques in real life to techniques in the game.
+
+
+I'm Seanna Musgrave, I'm interested
+
+Sixense -> STEM
+
+===============
+
+Similar projects:
+
+CLANG, took 500k and a year? to underdeliver. Development has been stopped.
+
+===============
+
+Where to promote:
+
+Facebook
+Twitter
+Hacker News: Show HN
+
+r/gaming (4m people) *
+r/gifs (2m people) *
+-------------
+r/games (430k people) 
+r/gadgets (166k)
+r/truegaming (100k people)
+-------------
+r/pcmasterrace (90k) *
+r/gamedev (80k people) * (Requires a text post, maybe later?)
+r/something I made (70k) *
+r/gamephysics (60k) * 
+r/pcgaming (58k) *
+r/gaymers (30k) *
+r/indieGaming (49k) *
+r/GirlGamers (20k) *
+r/Oculus (20k) *
+r/GamingForGamers (16k) *
+r/Unity3d (12k) *
+-------------
+r/gamedesign (8k)
+r/Fighters (5k)
+r/Swords (4k)
+r/Razer (3k)
+r/devblogs (3k)
+r/Fencing (3k) *
+r/Playmygame (3k)
+r/indieGames (2k) ???
+r/sideproject (2k people) *
+r/VirtualReality (2k) *
+r/themaking of games (1.4k)
+r/LeapMotion (1k people) *
+r/Unity (1k)
+r/unreleasedgames (1k)
+--------------
+r/oculusdev (990 people)
+r/classicalFencing (217 people)
+r/GBL (Game based Learning) (192)
+-------------- 
+r/motion controls (97 people)
+
+=========================
+
+Possibilities:
+
+Youtube video
+GIF
+
+
+Link to mailing list: http://eepurl.com/OyPsr
+=========================================
+
+Places posted: 
+
+Facebook.
+Twitter.
+Hacker News (Washed out)
+Leap Motion Forums (Fairly dead)
+
+Reddit: 
+r/LeapMotion
+r/IndieGaming
+r/Fencing
+r/Gaming
+r/Unity3D
+r/SideProject
+r/pcGaming
+r/Virtualreality
+r/Oculus
+r/Gifs
+r/gamedev
+r/pcMasterRace
+r/GirlGamers
+r/gaymers
+r/gamePhysics
+r/Gaming4Gamers
+r/somethingIMade
+
+Next to go:
+Gadgets?
+r/Games (Requires a self post! Maybe work on that tomorrow?)
+Tig Source
+RPS forums
+IndieGaming.com
+
+========================
+
+Note: It seems that you can only post 1 submission to reddit every 5 minutes?
+Try again: 12:48.
+Make some food soon! You might go crazy!
+
+======================================
+
+Future publicity steps:
+
+Video of using the controller.
+Lets players with Leap Motion / Razer Hydra.
+Blog post about what marketing (For HN, marketing sites)
