@@ -1,7 +1,13 @@
 ﻿function OnCollisionStay (collision: Collision) {
     if (collision.gameObject.name == "Sword") {
-        //GameObject.Find("GUI Text").GetComponent("GuiTimedDisplay").Display();
-        //GameObject.Destroy(GameObject.Find("EnemySword"));
+        var bloodSpout = transform.Find("BloodSpout").gameObject;
+        var EnemySword = GameObject.Find("Sword");
+        bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
+        bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
+        bloodSpout.transform.rotation.z += 180;
+        bloodSpout.particleSystem.Play();    
+    
+
         rigidbody.isKinematic = false;
         var enemySword = GameObject.Find("EnemySword");
         enemySword.GetComponent("EnemySwordController").alive = false;

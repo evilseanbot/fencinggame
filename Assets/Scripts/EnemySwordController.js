@@ -1,4 +1,4 @@
-﻿var timeToReset = new Array(1.0f, 0.5f, 0.5f, 0.12f, 0, 0.12f, 0);
+﻿var timeToReset;
 var timeElapsed = 0.0f;
 var phase = 0;
 var prefab : GameObject;
@@ -8,9 +8,10 @@ var switchingSides: boolean = false;
 var initiallyWaiting: boolean = true;
 var timeToWait: float = 4f;
 var alive: boolean = true;
+var timeToThrust = 0.5f;
 
 function Start() {
-    
+    timeToReset = new Array(timeToThrust*2f, timeToThrust, timeToThrust, timeToThrust, 0, timeToThrust/5f, timeToThrust);
 }
 
 function advancePhaseClock() {
@@ -45,9 +46,9 @@ function FixedUpdate() {
     // Phase 1 is thrusting
     else if (phase == 1) {
         if (onRightSideNow) {
-            rigidbody.AddForce(-80f, -80f, -160f);
+            rigidbody.AddForce(-40f/timeToThrust, -40f/timeToThrust, -80f/timeToThrust);
         } else {
-            rigidbody.AddForce(80f, -80f, -160f);        
+            rigidbody.AddForce(40f/timeToThrust, -40f/timeToThrust, -80f/timeToThrust);        
         }
         advancePhaseClock();
     }
@@ -55,48 +56,30 @@ function FixedUpdate() {
     // Phase 2 is recovering
     else if (phase == 2) {
         if (onRightSideNow) {
-            rigidbody.AddForce(80f, 80f, 160f);
+            rigidbody.AddForce(40f/timeToThrust, 40f/timeToThrust, 80f/timeToThrust);
         } else {
-            rigidbody.AddForce(-80f, 80f, 160f);        
+            rigidbody.AddForce(-40f/timeToThrust, 40f/timeToThrust, 80f/timeToThrust);        
         }
             
         advancePhaseClock();        
     }
     
     // Phase 3 is moving back to the home position.
-    else if (phase == 3) {
-        var xDiff: float; 
-        var yDiff: float; 
-        var zDiff: float;
-        var xTarget: float;
-        var yTarget: float;
-        var zTarget: float;
+    else if (phase == 3) {       
+        var targetPos: Vector3;
+        var targetRot: Quaternion;
     
         if (onRightSideNow) {
-	        xDiff = transform.position.x - (4.7f);
-	        yDiff = transform.position.y - 3.8f;
-	        zDiff = transform.position.z - 4.1f;
-	        
-	        xTarget = transform.position.x - (xDiff/10f);
-	        yTarget = transform.position.y - (yDiff/10f);
-	        zTarget = transform.position.z - (zDiff/10f);
-	        	                
-            //rigidbody.MovePosition(Vector3(4, 3.8, 4.1)); 
-            rigidbody.MovePosition(Vector3(xTarget, yTarget, zTarget)); 
-            rigidbody.MoveRotation(Quaternion.Euler(11, 199, 0));             
-                        
+            targetPos = Vector3(4.7f, 3.8f, 4.1f);
+            targetRot = Quaternion.Euler(11, 199, 0);
+
+            rigidbody.MovePosition(Vector3.Lerp(transform.position, targetPos, 0.10f));
+            rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));                               
         } else {
-	        xDiff = transform.position.x - (-4.7f);
-	        yDiff = transform.position.y - 3.8f;
-	        zDiff = transform.position.z - 4.1f;
-	        
-	        xTarget = transform.position.x - (xDiff/10f);
-	        yTarget = transform.position.y - (yDiff/10f);
-	        zTarget = transform.position.z - (zDiff/10f);
-	        	                
-            //rigidbody.MovePosition(Vector3(4, 3.8, 4.1)); 
-            rigidbody.MovePosition(Vector3(xTarget, yTarget, zTarget)); 
-            rigidbody.MoveRotation(Quaternion.Euler(11, 161, 0));                         
+            targetPos = Vector3(-4.7f, 3.8f, 4.1f);
+            targetRot = Quaternion.Euler(11, 199, 0);
+            rigidbody.MovePosition(Vector3.Lerp(transform.position, targetPos, 0.10f));
+            rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));
         }        
         
         advancePhaseClock();
@@ -127,9 +110,9 @@ function FixedUpdate() {
     else if (phase == 5) {
         if (switchingSides) {
             if (onRightSideNow) {
-                rigidbody.AddForce(400f, 0, 0);           
+                rigidbody.AddForce(200f/timeToThrust, 0, 0);           
             } else {
-                rigidbody.AddForce(-400f, 0, 0);                       
+                rigidbody.AddForce(-200f/timeToThrust, 0, 0);                       
             }
         } 
     
@@ -140,12 +123,14 @@ function FixedUpdate() {
     else if (phase == 6) {
       if (switchingSides) {
            if (onRightSideNow) {
-               rigidbody.MoveRotation(Quaternion.Euler(11, 199, 0));             
+               targetRot = Quaternion.Euler(11, 199, 0);
+               rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));             
            } else {
-               rigidbody.MoveRotation(Quaternion.Euler(11, 161, 0));                        
+               targetRot = Quaternion.Euler(11, 161, 0);           
+               rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));
            }
        }
-       phase = 7;
+       advancePhaseClock();
     }
     
     // Phase 7 is reseting the phase + switchingSides.
