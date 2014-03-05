@@ -16,12 +16,10 @@ public class SwordController : MonoBehaviour {
 		//gameObject.transform.forward = myLeapManagerInstance.frontmostHand().Direction.ToUnity();
 		//gameObject.transform.up = -1 * myLeapManagerInstance.frontmostHand().PalmNormal.ToUnity();		
 		//gameObject.transform.right= myLeapManagerInstance.frontmostHand().
-		//gameObject.rigidbody.MovePosition (myLeapManagerInstance.frontmostHand().PalmPosition.ToUnityTranslated());
 
 		Leap.Hand mHand = myLeapManagerInstance.frontmostHand();
 
-		Vector3 tool_natural = new Vector3(mHand.Direction.Pitch,-mHand.Direction.Yaw,mHand.PalmNormal.Roll);
-		//gameObject.transform.localRotation = Quaternion.Euler(tool_natural*-90);
-		gameObject.rigidbody.MoveRotation (Quaternion.Euler(tool_natural*-90));
+		Vector3 palm_natural = new Vector3(mHand.Direction.Pitch,-mHand.Direction.Yaw,mHand.PalmNormal.Roll);
+		gameObject.transform.localRotation = Quaternion.Euler(palm_natural*-90);
 	}
 }

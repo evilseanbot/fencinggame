@@ -1,4 +1,9 @@
-﻿
+﻿var shoulder;
+
+function Start() {
+    shoulder = GameObject.Find("Shoulder");
+}
+
 function FixedUpdate () {
-    transform.LookAt(GameObject.Find("Shoulder").transform);
+    transform.LookAt(shoulder.transform);
 }

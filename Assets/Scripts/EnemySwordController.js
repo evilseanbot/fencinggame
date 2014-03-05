@@ -5,12 +5,14 @@ var prefab : GameObject;
 var onRightSideBefore: boolean = true;
 var onRightSideNow : boolean = true;
 var switchingSides: boolean = false;
-var initiallyWaiting: boolean = true;
+var initiallyWaiting: boolean = false;
 var timeToWait: float = 4f;
 var alive: boolean = true;
 var timeToThrust = 0.5f;
 
 function Start() {
+    var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
+    timeToThrust = 0.5f / memory.enemyReflexes;
     timeToReset = new Array(timeToThrust*2f, timeToThrust, timeToThrust, timeToThrust, 0, timeToThrust/5f, timeToThrust);
 }
 

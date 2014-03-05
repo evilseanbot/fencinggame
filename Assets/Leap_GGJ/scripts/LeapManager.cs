@@ -68,7 +68,7 @@ public class LeapManager : MonoBehaviour {
 	void Start () {
 		if(_mainCam == null)
 		{
-			_mainCam = (GameObject.FindGameObjectWithTag("MainCamera") as GameObject).GetComponent(typeof(Camera)) as Camera;
+			_mainCam = (GameObject.Find("Main Camera") as GameObject).GetComponent(typeof(Camera)) as Camera;
 		}
 	}
 	

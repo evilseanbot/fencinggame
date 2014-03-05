@@ -14,5 +14,16 @@
         enemySword.rigidbody.useGravity = true;
         enemySword.rigidbody.drag = 0;
         enemySword.rigidbody.angularDrag = 0.5;
+        
+        Invoke("advanceLevel", 5f);        
     }
+}
+
+function advanceLevel() {
+    var playerController = GameObject.Find("Player").GetComponent("PlayerController");
+    if (!playerController.wounded) {
+	    var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");   
+	    memory.enemyReflexes += 1;
+	    Application.LoadLevel("demo");
+	}
 }
