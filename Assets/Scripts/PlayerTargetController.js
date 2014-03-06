@@ -5,6 +5,7 @@
         var upperBody = player.transform.FindChild("UpperBody");
         var bloodSpout = upperBody.FindChild("PlayerBloodSpout").gameObject;
         
+        //test
         //var bloodSpout = GameObject.Find("Player").transform.FindChild("UpperBody").FindChild("PlayerBloodSpout").gameObject;
         bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
         bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
