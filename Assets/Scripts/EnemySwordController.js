@@ -9,11 +9,15 @@ var initiallyWaiting: boolean = false;
 var timeToWait: float = 4f;
 var alive: boolean = true;
 var timeToThrust = 0.5f;
+var enemy: GameObject;
 
 function Start() {
     var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
     timeToThrust = 0.5f / memory.enemyReflexes;
     timeToReset = new Array(timeToThrust*2f, timeToThrust, timeToThrust, timeToThrust, 0, timeToThrust/5f, timeToThrust);
+    
+    enemy = GameObject.Find("Enemy");
+    
 }
 
 function advancePhaseClock() {
@@ -47,6 +51,9 @@ function FixedUpdate() {
     
     // Phase 1 is thrusting
     else if (phase == 1) {
+        enemy.GetComponent("Animator").SetBool("lunging", true);    
+        enemy.GetComponent("Animator").SetBool("recovering", false);    
+        
         if (onRightSideNow) {
             rigidbody.AddForce(-40f/timeToThrust, -40f/timeToThrust, -80f/timeToThrust);
         } else {
@@ -57,6 +64,9 @@ function FixedUpdate() {
 
     // Phase 2 is recovering
     else if (phase == 2) {
+        enemy.GetComponent("Animator").SetBool("lunging", false);    
+        enemy.GetComponent("Animator").SetBool("recovering", true);    
+    
         if (onRightSideNow) {
             rigidbody.AddForce(40f/timeToThrust, 40f/timeToThrust, 80f/timeToThrust);
         } else {

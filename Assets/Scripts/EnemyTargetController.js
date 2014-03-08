@@ -5,6 +5,12 @@ var timeTakenWalking: float = 0f;
 var zVel = 0.08f;
 
 function FixedUpdate() {
+    walk();
+    gameObject.GetComponent("Animator").SetBool("lunging", true);
+
+}
+
+function walk() {
     timeTakenWalking += Time.deltaTime;
     
     if (timeTakenWalking >= timeTillNextWalkDecision) {
@@ -27,6 +33,7 @@ function FixedUpdate() {
     } else if (walkingBackward) {
         transform.position.z += zVel;
     }
+
 }
 
 function OnCollisionStay (collision: Collision) {
