@@ -1,4 +1,35 @@
-﻿function OnCollisionStay (collision: Collision) {
+﻿var  walkingForward: boolean = false;
+var  walkingBackward: boolean = false;
+var  timeTillNextWalkDecision: float = 1f;
+var timeTakenWalking: float = 0f;
+var zVel = 0.08f;
+
+function FixedUpdate() {
+    timeTakenWalking += Time.deltaTime;
+    
+    if (timeTakenWalking >= timeTillNextWalkDecision) {
+        timeTakenWalking = 0;
+        
+        var random = Random.Range(0f, 3f);
+        
+        walkingForward = false;
+        walkingBackward = false;
+        
+        if (random > 2) {
+            walkingForward = true;
+        } else if (random > 1) {
+            walkingBackward = true;
+        } 
+    }
+    
+    if (walkingForward) {
+        transform.position.z -= zVel;
+    } else if (walkingBackward) {
+        transform.position.z += zVel;
+    }
+}
+
+function OnCollisionStay (collision: Collision) {
     if (collision.gameObject.name == "Sword") {
         var bloodSpout = transform.Find("BloodSpout").gameObject;
         var EnemySword = GameObject.Find("Sword");
@@ -27,3 +58,4 @@ function advanceLevel() {
 	    Application.LoadLevel("demo");
 	}
 }
+
