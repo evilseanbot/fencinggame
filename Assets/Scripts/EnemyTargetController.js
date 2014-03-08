@@ -1,13 +1,11 @@
-﻿var  walkingForward: boolean = false;
-var  walkingBackward: boolean = false;
-var  timeTillNextWalkDecision: float = 1f;
+﻿var walkingForward: boolean = false;
+var walkingBackward: boolean = false;
+var timeTillNextWalkDecision: float = 1f;
 var timeTakenWalking: float = 0f;
 var zVel = 0.08f;
 
 function FixedUpdate() {
     walk();
-    gameObject.GetComponent("Animator").SetBool("lunging", true);
-
 }
 
 function walk() {
@@ -16,7 +14,8 @@ function walk() {
     if (timeTakenWalking >= timeTillNextWalkDecision) {
         timeTakenWalking = 0;
         
-        var random = Random.Range(0f, 3f);
+        var random: float = Random.Range(0f, 3f);
+        Debug.Log(random);
         
         walkingForward = false;
         walkingBackward = false;
@@ -38,7 +37,7 @@ function walk() {
 
 function OnCollisionStay (collision: Collision) {
     if (collision.gameObject.name == "Sword") {
-        var bloodSpout = transform.Find("BloodSpout").gameObject;
+        var bloodSpout = transform.Find("EnemyUpperBody").Find("BloodSpout").gameObject;
         var EnemySword = GameObject.Find("Sword");
         bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
         bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
