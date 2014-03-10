@@ -83,13 +83,13 @@ function FixedUpdate() {
         var enemyTrans: Transform = GameObject.Find("Enemy").transform;
     
         if (onRightSideNow) {
-            targetPos = Vector3(4.7f + enemyTrans.position.x, 3.8f + enemyTrans.position.y, -5.9f + enemyTrans.position.z);
+            targetPos = Vector3(4.7f + enemyTrans.position.x, 1.8f + enemyTrans.position.y, -5.9f + enemyTrans.position.z);
             targetRot = Quaternion.Euler(11, 199, 0);
 
             rigidbody.MovePosition(Vector3.Lerp(transform.position, targetPos, 0.10f));
             rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));                               
         } else {
-            targetPos = Vector3(-4.7f + enemyTrans.position.x, 3.8f + enemyTrans.position.y, -5.9f + enemyTrans.position.z);
+            targetPos = Vector3(-4.7f + enemyTrans.position.x, 1.8f + enemyTrans.position.y, -5.9f + enemyTrans.position.z);
             targetRot = Quaternion.Euler(11, 199, 0);
             rigidbody.MovePosition(Vector3.Lerp(transform.position, targetPos, 0.10f));
             rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));

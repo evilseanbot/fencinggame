@@ -3,9 +3,12 @@ var walkingBackward: boolean = false;
 var timeTillNextWalkDecision: float = 1f;
 var timeTakenWalking: float = 0f;
 var zVel = 0.08f;
+var alive = true;
 
 function FixedUpdate() {
-    walk();
+    if (alive) {
+        walk();
+    }
 }
 
 function walk() {
@@ -37,6 +40,7 @@ function walk() {
 
 function OnCollisionStay (collision: Collision) {
     if (collision.gameObject.name == "Sword") {
+        alive = false;
         var bloodSpout = transform.Find("EnemyUpperBody").Find("BloodSpout").gameObject;
         var EnemySword = GameObject.Find("Sword");
         bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;

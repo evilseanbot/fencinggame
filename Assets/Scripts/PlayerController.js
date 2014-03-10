@@ -3,10 +3,10 @@ var wounded = false;
 
 function FixedUpdate () {
     zVel = 0f;
-    var walkingSpeed = 0.25f;
+    var walkingSpeed = 0.06f;
     
     if (lunging()) {
-        walkingSpeed = 0.12f;
+        walkingSpeed = 0.03f;
     }
 
     if(Input.GetKey("w")) {
