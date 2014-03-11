@@ -52,6 +52,7 @@ function OnCollisionStay (collision: Collision) {
         rigidbody.isKinematic = false;
         var enemySword = GameObject.Find("EnemySword");
         enemySword.GetComponent("EnemySwordController").alive = false;
+        enemySword.rigidbody.constraints = RigidbodyConstraints.None;
         enemySword.rigidbody.useGravity = true;
         enemySword.rigidbody.drag = 0;
         enemySword.rigidbody.angularDrag = 0.5;

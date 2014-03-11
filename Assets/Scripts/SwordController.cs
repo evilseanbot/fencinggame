@@ -6,7 +6,6 @@ public class SwordController : MonoBehaviour {
 	LeapManager myLeapManagerInstance;
 	Transform upperBodyTrans;
 	
-	// Use this for initialization
 	void Start () {
 		myLeapManagerInstance = (GameObject.Find("LeapManager") as GameObject).GetComponent(typeof(LeapManager)) as LeapManager;
 		upperBodyTrans = GameObject.Find("UpperBody").transform; 
@@ -14,21 +13,19 @@ public class SwordController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		//gameObject.transform.localPosition = myLeapManagerInstance.frontmostHand().PalmPosition.ToUnityTranslated();
 		Vector3 targetPos = getTargetPos();
+		Quaternion targetRot = getTargetRot();
 
+		//moveWithForce(targetPos);
+		moveWithMovePos(targetPos, targetRot);
+	}
+
+	Quaternion getTargetRot() {
 		Leap.Hand mHand = myLeapManagerInstance.frontmostHand();
-
 		Vector3 palm_natural = new Vector3(mHand.Direction.Pitch,-mHand.Direction.Yaw,mHand.PalmNormal.Roll);
 		Quaternion targetRot = Quaternion.Euler (palm_natural*-90); 
-		//targetRot = Quaternion.Lerp(transform.localRotation, targetRot, 0.25f);
-		//gameObject.transform.localRotation = Quaternion.Euler(palm_natural*-90);
-		//rigidbody.MoveRotation (Quaternion.Euler (palm_natural*-90));
-		//transform.Translate (targetPos);
-		//transform.localPosition = targetPos;
-		//rigidbody.MovePosition (targetPos);
-		moveWithForce(targetPos);
-		moveWithMovePos(targetPos, targetRot);
+		targetRot = Quaternion.Lerp(transform.localRotation, targetRot, 0.25f);
+		return targetRot;
 	}
 
 	Vector3 getTargetPos() {
@@ -36,7 +33,7 @@ public class SwordController : MonoBehaviour {
 		targetPos.x += upperBodyTrans.position.x;
 		targetPos.y += upperBodyTrans.position.y;
 		targetPos.z += upperBodyTrans.position.z;
-		//targetPos = Vector3.Lerp (transform.localPosition, targetPos, 0.25f);
+		targetPos = Vector3.Lerp (transform.localPosition, targetPos, 0.25f);
 		return targetPos;
 	}
 
