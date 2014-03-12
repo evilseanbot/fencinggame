@@ -18,7 +18,7 @@ var startingRot: Quaternion;
 function Start() {
     var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
     timeToThrust = 1f / memory.enemyReflexes;
-    timeToReset = new Array(timeToThrust*0.5f, timeToThrust, 0, timeToThrust, timeToThrust*0.5f, 0, timeToThrust/5f, timeToThrust);
+    timeToReset = new Array(timeToThrust*0.5f, timeToThrust*0.5f, 0, timeToThrust, timeToThrust*0.5f, 0, timeToThrust/5f, timeToThrust);
     
     enemyUpperBody = GameObject.Find("EnemyUpperBody");
     
@@ -101,8 +101,8 @@ function FixedUpdate() {
 }
 
 function thrust() {
-	//enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
-	//enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
+	enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
+	enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
 	var sixAttackPos: Vector3 = new Vector3 (2, -1, -15);
 	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( 5, 190, 0) );
 	
