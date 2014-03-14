@@ -18,7 +18,6 @@ function walk() {
         timeTakenWalking = 0;
         
         var random: float = Random.Range(0f, 3f);
-        Debug.Log(random);
         
         walkingForward = false;
         walkingBackward = false;

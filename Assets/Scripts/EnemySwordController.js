@@ -45,6 +45,8 @@ function FixedUpdate() {
     if (phase == 0) {
         startingPos = transform.position;
         startingRot = transform.rotation;
+        
+        chasePos(10f);        
     
         advancePhaseClock();
     }
@@ -70,7 +72,8 @@ function FixedUpdate() {
     
     // Phase 3 is moving back to the home position.
     else if (phase == 4) {       
-        moveToHome();    
+        //moveToHome();    
+        phase = 0;
     }
     
     else if (phase == 5) {
@@ -104,7 +107,7 @@ function thrust() {
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
 	var sixAttackPos: Vector3 = new Vector3 (2, -1, -15);
-	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( 5, 190, 0) );
+	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -10, 190, 0) );
 	
 	targetPos = Vector3.Lerp(startingPos, sixAttackPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
 	targetRot = Quaternion.Lerp(startingRot, sixAttackRot, timeElapsed / timeToReset[phase]);	
@@ -234,23 +237,15 @@ function chasePos(speed) {
 	var moveRot = Quaternion.Euler(0, 0, 0);
 
 	change = targetPos - transform.position;
-	//changeRot = targetRot - transform.rotation;
 	
 	rotSpeed = 2f;
 	
 	for (var i = 0; i < 3; i++) {
-	    //changeRot[i] = targetRot[i] - transform.rotation[i];
 	
 	    change[i] = Mathf.Min(change[i], speed);
 	    change[i] = Mathf.Max(change[i], -speed);				
-
-	    //changeRot[i] = Mathf.Min(changeRot[i], rotSpeed);
-	    //changeRot[i] = Mathf.Max(changeRot[i], -rotSpeed);				                        
-	    
-	    //moveRot[i] = transform.rotation[i] + changeRot[i];
 	}
 					
 	rigidbody.MovePosition(transform.position + change);
-	//rigidbody.MoveRotation(moveRot);
     rigidbody.MoveRotation(Quaternion.RotateTowards(transform.rotation, targetRot, rotSpeed));	
 }
