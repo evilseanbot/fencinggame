@@ -23,17 +23,24 @@ public class SwordController : MonoBehaviour {
 	Quaternion getTargetRot() {
 		Leap.Hand mHand = myLeapManagerInstance.frontmostHand();
 		Vector3 palm_natural = new Vector3(mHand.Direction.Pitch,-mHand.Direction.Yaw,mHand.PalmNormal.Roll);
+		palm_natural.y -= upperBodyTrans.rotation.y;
 		Quaternion targetRot = Quaternion.Euler (palm_natural*-90); 
 		targetRot = Quaternion.Lerp(transform.localRotation, targetRot, 0.5f);
 		return targetRot;
 	}
 
+	Quaternion combineRotations(Quaternion rotationA, Quaternion rotationB) {
+		Quaternion combined = rotationB * rotationA;
+		return combined;
+	}
+
 	Vector3 getTargetPos() {
 		Vector3 targetPos = myLeapManagerInstance.frontmostHand().PalmPosition.ToUnityTranslated();
+		targetPos = upperBodyTrans.TransformDirection (targetPos);
 		targetPos.x += upperBodyTrans.position.x;
 		targetPos.y += upperBodyTrans.position.y;
 		targetPos.z += upperBodyTrans.position.z;
-		targetPos = Vector3.Lerp (transform.localPosition, targetPos, 0.5f);
+		targetPos = Vector3.Lerp (transform.localPosition, targetPos, 0.5f);     
 		return targetPos;
 	}
 
@@ -72,7 +79,6 @@ public class SwordController : MonoBehaviour {
 	void moveWithMovePos(Vector3 targetPos, Quaternion targetRot) {
 		rigidbody.MovePosition (targetPos);
 		rigidbody.MoveRotation (targetRot);
-
 	}
 
 

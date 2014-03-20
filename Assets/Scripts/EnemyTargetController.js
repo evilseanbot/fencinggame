@@ -9,6 +9,11 @@ function FixedUpdate() {
     if (alive) {
         walk();
     }
+    
+    var player = GameObject.Find("Player").transform;
+    
+    //transform.LookAt(player);
+    
 }
 
 function walk() {

@@ -1,8 +1,10 @@
 ﻿private var zVel = 0f;
+private var xVel = 0f;
 var wounded = false;
 
 function FixedUpdate () {
     zVel = 0f;
+    xVel = 0f;
     var walkingSpeed = 0.12f;
     
     if (lunging()) {
@@ -13,8 +15,12 @@ function FixedUpdate () {
         zVel = walkingSpeed;
     } else if (Input.GetKey("s")) {
         zVel = -walkingSpeed;
-    } else {
-        zVel = 0;
+    }
+
+    if(Input.GetKey("d")) {
+        xVel = walkingSpeed;
+    } else if (Input.GetKey("a")) {
+        xVel = -walkingSpeed;
     }
     
     if (Input.GetKey("q")) {
@@ -37,8 +43,15 @@ function FixedUpdate () {
     if (Input.GetKey("r")) {
         restartGame();
     }
+        
+    var moveDirection = new Vector3(xVel, 0, zVel);
+    moveDirection = transform.TransformDirection(moveDirection);
+    transform.position += moveDirection;
     
-    transform.position.z += zVel;
+    
+    // !!! Usage of reference to enemy, should change to closest enemy eventually.
+    var enemyTrans = GameObject.Find("Enemy").transform;
+    transform.LookAt(enemyTrans);
     
 }
 
