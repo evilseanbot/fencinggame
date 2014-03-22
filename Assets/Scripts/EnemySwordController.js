@@ -10,6 +10,8 @@ var timeToWait: float = 4f;
 var alive: boolean = true;
 var timeToThrust = 0.5f;
 var enemyUpperBody: GameObject;
+var enemy: GameObject;
+var player: GameObject;
 var targetPos: Vector3;
 var targetRot: Quaternion;
 var startingPos: Vector3;
@@ -21,6 +23,8 @@ function Start() {
     timeToReset = new Array(timeToThrust*0.5f, timeToThrust*0.5f, 0, timeToThrust, timeToThrust*0.5f, 0, timeToThrust/5f, timeToThrust);
     
     enemyUpperBody = GameObject.Find("EnemyUpperBody");
+    enemy = GameObject.Find("Enemy");
+    player = GameObject.Find("Player");
     
 }
 
@@ -29,6 +33,7 @@ function advancePhaseClock() {
 	if (timeElapsed > timeToReset[phase]) {
 	    timeElapsed = 0;
 	    phase += 1;
+	    enemy.transform.LookAt(player.transform);
 	}
 }
 
@@ -46,7 +51,7 @@ function FixedUpdate() {
         startingPos = transform.position;
         startingRot = transform.rotation;
         
-        chasePos(10f);        
+        chasePos(0.10f);        
     
         advancePhaseClock();
     }
@@ -79,6 +84,7 @@ function FixedUpdate() {
     else if (phase == 5) {
         phase = 0;
     }
+    
     /*
     // Phase 4 is choosing a side to switch to.
     else if (phase == 4) {
@@ -106,12 +112,15 @@ function FixedUpdate() {
 function thrust() {
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
-	var sixAttackPos: Vector3 = new Vector3 (2, -1, -15);
-	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -10, 190, 0) );
+	var sixAttackPos: Vector3 = new Vector3 (-2, 1, 15);
+	var attackY = 190 - enemyUpperBody.transform.rotation.y;
+	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -10, attackY, 0) );
+	
+	sixAttackPos = enemyUpperBody.transform.TransformDirection(sixAttackPos);
 	
 	targetPos = Vector3.Lerp(startingPos, sixAttackPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
 	targetRot = Quaternion.Lerp(startingRot, sixAttackRot, timeElapsed / timeToReset[phase]);	
-	chasePos(0.10f);
+    chasePos(0.10f);
 			
     /*
 	if (onRightSideNow) {
@@ -138,15 +147,19 @@ function recover() {
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", false);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", true);    
 	
-	var sixRestPos: Vector3 = new Vector3 (4, -1, -12);
-	var sixRestRot: Quaternion = Quaternion.Euler( new Vector3(-30, 210, 0) );
-	
+	var sixRestPos: Vector3 = new Vector3 (-4, 1, 12);
+	var restY = 210 - enemyUpperBody.transform.rotation.y;
+	var sixRestRot: Quaternion = Quaternion.Euler( new Vector3(-30, restY, 0) );
+
+	sixRestPos = enemyUpperBody.transform.TransformDirection(sixRestPos);		
+						
 	//rigidbody.MovePosition(Vector3.Lerp(transform.position, sixRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]));
 	//rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, sixRestRot, timeElapsed / timeToReset[phase]));
 
 	targetPos = Vector3.Lerp(startingPos, sixRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
 	targetRot = Quaternion.Lerp(startingRot, sixRestRot, timeElapsed / timeToReset[phase]);	
-	chasePos(10f);
+	
+	chasePos(0.10f);
 	
 			
     /*
