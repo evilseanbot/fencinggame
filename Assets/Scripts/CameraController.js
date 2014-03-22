@@ -7,6 +7,7 @@ function Start () {
 }
 
 function Update () {
+    /*
     if (shaking) {
         transform.localPosition = homePos;
         shaking = false;
@@ -28,5 +29,5 @@ function Update () {
     if (!Input.GetKey("a") && !Input.GetKey("d")) {
         noKeyPressedYet = true;
     }
-    
+    */
 }

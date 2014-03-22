@@ -16,11 +16,13 @@ var targetPos: Vector3;
 var targetRot: Quaternion;
 var startingPos: Vector3;
 var startingRot: Quaternion;
+var posSpeed = 0.20f;
+var oldZPos: float = 0f;
 
 function Start() {
     var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
     timeToThrust = 1f / memory.enemyReflexes;
-    timeToReset = new Array(timeToThrust*0.5f, timeToThrust*0.5f, 0, timeToThrust, timeToThrust*0.5f, 0, timeToThrust/5f, timeToThrust);
+    timeToReset = new Array(timeToThrust*0.5f, timeToThrust*0.5f, 0, timeToThrust, 0, timeToThrust, 0, timeToThrust);
     
     enemyUpperBody = GameObject.Find("EnemyUpperBody");
     enemy = GameObject.Find("Enemy");
@@ -41,7 +43,7 @@ function FixedUpdate() {
     if (!alive) {
         return;
     }
-    
+        
     if (initiallyWaiting) {
         wait();
     }
@@ -51,7 +53,7 @@ function FixedUpdate() {
         startingPos = transform.position;
         startingRot = transform.rotation;
         
-        chasePos(0.10f);        
+        //chasePos(0.10f);        
     
         advancePhaseClock();
     }
@@ -73,21 +75,12 @@ function FixedUpdate() {
     else if (phase == 3) {
         recover();
     }
+        
     
-    
-    // Phase 3 is moving back to the home position.
-    else if (phase == 4) {       
-        //moveToHome();    
-        phase = 0;
-    }
-    
-    else if (phase == 5) {
-        phase = 0;
-    }
-    
-    /*
     // Phase 4 is choosing a side to switch to.
     else if (phase == 4) {
+        startingPos = transform.position;
+        startingRot = transform.rotation;    
         chooseSide();
     }
     
@@ -96,6 +89,17 @@ function FixedUpdate() {
         switchSides();
     }
     
+    else if (phase == 6) {
+        switchingSides = false;
+        phase = 0;
+    }
+
+    else if (phase == 7) {
+        switchingSides = false;
+        phase = 0;
+    }
+        
+    /*
     // Phase 6 is setting the appropiate rotation.
     else if (phase == 6) {
         setSideRotation();
@@ -112,23 +116,30 @@ function FixedUpdate() {
 function thrust() {
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
-	var sixAttackPos: Vector3 = new Vector3 (-2, 1, 15);
-	var attackY = 190 - enemyUpperBody.transform.rotation.y;
-	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -10, attackY, 0) );
-	
-	sixAttackPos = enemyUpperBody.transform.TransformDirection(sixAttackPos);
-	
-	targetPos = Vector3.Lerp(startingPos, sixAttackPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
-	targetRot = Quaternion.Lerp(startingRot, sixAttackRot, timeElapsed / timeToReset[phase]);	
-    chasePos(0.10f);
-			
-    /*
-	if (onRightSideNow) {
 
-	    rigidbody.AddForce(-40f/timeToThrust, -40f/timeToThrust, -80f/timeToThrust);
-	} else {
-	    rigidbody.AddForce(40f/timeToThrust, -40f/timeToThrust, -80f/timeToThrust);        
-	}*/
+    var attackY;
+
+	var fourAttackPos: Vector3 = new Vector3 (-1, 1, 15);
+	attackY = 183 - enemyUpperBody.transform.rotation.y;
+	var fourAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -7, attackY, 0) );
+	fourAttackPos = enemyUpperBody.transform.TransformDirection(fourAttackPos);
+	
+	var sixAttackPos: Vector3 = new Vector3 (1, 1, 15);
+	attackY = 177 - enemyUpperBody.transform.rotation.y;
+	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -7, attackY, 0) );
+	sixAttackPos = enemyUpperBody.transform.TransformDirection(sixAttackPos);
+
+		
+	if (onRightSideNow) {
+	    targetPos = Vector3.Lerp(startingPos, sixAttackPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
+	    targetRot = Quaternion.Lerp(startingRot, sixAttackRot, timeElapsed / timeToReset[phase]);	
+    } else {
+	    targetPos = Vector3.Lerp(startingPos, fourAttackPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
+	    targetRot = Quaternion.Lerp(startingRot, fourAttackRot, timeElapsed / timeToReset[phase]);	    
+    }
+    
+    chasePos(posSpeed);
+			
 	advancePhaseClock(); 
 }
 
@@ -147,29 +158,28 @@ function recover() {
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", false);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", true);    
 	
-	var sixRestPos: Vector3 = new Vector3 (-4, 1, 12);
-	var restY = 210 - enemyUpperBody.transform.rotation.y;
-	var sixRestRot: Quaternion = Quaternion.Euler( new Vector3(-30, restY, 0) );
-
-	sixRestPos = enemyUpperBody.transform.TransformDirection(sixRestPos);		
-						
-	//rigidbody.MovePosition(Vector3.Lerp(transform.position, sixRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]));
-	//rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, sixRestRot, timeElapsed / timeToReset[phase]));
-
-	targetPos = Vector3.Lerp(startingPos, sixRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
-	targetRot = Quaternion.Lerp(startingRot, sixRestRot, timeElapsed / timeToReset[phase]);	
+	var restY;
 	
-	chasePos(0.10f);
+	var fourRestPos: Vector3 = new Vector3 (-3, 1, 8);
+	restY = 190 - enemyUpperBody.transform.rotation.y;
+	var fourRestRot: Quaternion = Quaternion.Euler( new Vector3(-10, restY, 0) );
+	fourRestPos = enemyUpperBody.transform.TransformDirection(fourRestPos);		
+
+	var sixRestPos: Vector3 = new Vector3 (3, 1, 8);
+	restY = 170 - enemyUpperBody.transform.rotation.y;
+	var sixRestRot: Quaternion = Quaternion.Euler( new Vector3(-10, restY, 0) );
+	sixRestPos = enemyUpperBody.transform.TransformDirection(sixRestPos);																				
 	
-			
-    /*
+	chasePos(posSpeed);
+
 	if (onRightSideNow) {
-	    rigidbody.AddForce(40f/timeToThrust, 40f/timeToThrust, 80f/timeToThrust);
-	} else {
-	    rigidbody.AddForce(-40f/timeToThrust, 40f/timeToThrust, 80f/timeToThrust);        
-	}
-	*/
-	    
+	    targetPos = Vector3.Lerp(startingPos, sixRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
+	    targetRot = Quaternion.Lerp(startingRot, sixRestRot, timeElapsed / timeToReset[phase]);	
+    } else {
+	    targetPos = Vector3.Lerp(startingPos, fourRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
+	    targetRot = Quaternion.Lerp(startingRot, fourRestRot, timeElapsed / timeToReset[phase]);	    
+    }
+			    
 	advancePhaseClock();        
 }
 
@@ -196,7 +206,7 @@ function moveToHome() {
 }
 
 function chooseSide() {
-    /*
+    
 	var random: float = Random.Range(0f, 2f);
 	                
 	if (random > 1) {
@@ -210,22 +220,12 @@ function chooseSide() {
 	    }
 	    onRightSideNow = false;
 	}
-	*/
 
 	phase = 5;
 }
 
 function switchSides() {
-    /*
-	if (switchingSides) {
-	    if (onRightSideNow) {
-	        rigidbody.AddForce(200f/timeToThrust, 0, 0);           
-	    } else {
-	        rigidbody.AddForce(-200f/timeToThrust, 0, 0);                       
-	    }
-	} 
-	*/
-
+    recover();
 	advancePhaseClock();
 }
 
@@ -251,7 +251,7 @@ function chasePos(speed) {
 
 	change = targetPos - transform.position;
 	
-	rotSpeed = 2f;
+	rotSpeed = 4f;
 	
 	for (var i = 0; i < 3; i++) {
 	
