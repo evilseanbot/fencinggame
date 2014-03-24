@@ -21,25 +21,25 @@ var swordPositions = new Hashtable();
 swordPositions["rest"] = new Hashtable();
 swordPositions["rest"]["6"] = new Hashtable();
 swordPositions["rest"]["6"]["position"] = new Vector3(3, 1, 8);
-swordPositions["rest"]["6"]["rotation"] = new Vector3(-10, 170, 0);
+swordPositions["rest"]["6"]["rotation"] = new Vector3(-10, -10, 0);
 
 swordPositions["rest"]["4"] = new Hashtable();
 swordPositions["rest"]["4"]["position"] = new Vector3(-3, 1, 8);
-swordPositions["rest"]["4"]["rotation"] = new Vector3(-10, 190, 0);
+swordPositions["rest"]["4"]["rotation"] = new Vector3(-10, 10, 0);
 
 swordPositions["attack"] = new Hashtable();
 swordPositions["attack"]["6"] = new Hashtable();
 swordPositions["attack"]["6"]["position"] = new Vector3(1, 1, 15);
-swordPositions["attack"]["6"]["rotation"] = new Vector3(-7, 177, 0);
+swordPositions["attack"]["6"]["rotation"] = new Vector3(-7, -3, 0);
 
 swordPositions["attack"]["4"] = new Hashtable();
 swordPositions["attack"]["4"]["position"] = new Vector3(-1, 1, 8);
-swordPositions["attack"]["4"]["rotation"] = new Vector3(-7, 183, 0);
+swordPositions["attack"]["4"]["rotation"] = new Vector3(-7, 3, 0);
 
 
 function Start() {
     var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
-    timeToThrust = Mathf.Min(0.25f, 1f / memory.enemyReflexes);
+    timeToThrust = Mathf.Max(0.25f, 1f / memory.enemyReflexes);
     timeToReset = new Array(timeToThrust*0.5f, timeToThrust*0.5f, 0, timeToThrust, 0, timeToThrust, 0, timeToThrust);
     
     // Change this to refer to just 'upperBody', get more symettry between player / enemies.
@@ -169,7 +169,7 @@ function setTargetToSwordPosition(selectedSwordPosition) {
     var endTargetPos = enemyUpperBody.transform.TransformDirection(selectedSwordPosition["position"]) + enemyUpperBody.transform.position;
     targetPos = Vector3.Lerp(startingPos, endTargetPos, timeElapsed / timeToReset[phase]);
     var endTargetRot = Quaternion.Euler(selectedSwordPosition["rotation"].x, 
-         selectedSwordPosition["rotation"].y - enemyUpperBody.transform.rotation.y, 
+         selectedSwordPosition["rotation"].y + enemyUpperBody.transform.rotation.eulerAngles.y, 
          selectedSwordPosition["rotation"].z);
     targetRot = Quaternion.Lerp(startingRot, endTargetRot, timeElapsed / timeToReset[phase]);	
 }

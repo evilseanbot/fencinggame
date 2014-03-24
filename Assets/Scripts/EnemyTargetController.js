@@ -2,47 +2,65 @@
 var walkingBackward: boolean = false;
 var timeTillNextWalkDecision: float = 1f;
 var timeTakenWalking: float = 0f;
-var zVel = 0.08f;
+var walkingSpeed = 0.06f;
 var alive = true;
 
 function FixedUpdate() {
     if (alive) {
         walk();
-    }
-    
-    var player = GameObject.Find("Player").transform;
-    
-    //transform.LookAt(player);
-    
+    }        
 }
 
 function walk() {
-    timeTakenWalking += Time.deltaTime;
-    
-    if (timeTakenWalking >= timeTillNextWalkDecision) {
-        timeTakenWalking = 0;
-        
-        var random: float = Random.Range(0f, 3f);
-        
-        walkingForward = false;
-        walkingBackward = false;
-        
-        if (random > 2) {
-            walkingForward = true;
-        } else if (random > 1) {
-            walkingBackward = true;
-        } 
-    }
-    
-    if (walkingForward) {
-        transform.position.z -= zVel;
-    } else if (walkingBackward) {
-        transform.position.z += zVel;
-    }
+    var zVel = 0f;
 
+    makeWalkingDecision();
+    
+    zVel = getZVelByWalkingState();
+       
+    var moveDirection = new Vector3(0, 0, zVel);
+    moveDirection = transform.TransformDirection(moveDirection);
+    transform.position += moveDirection;
+}
+
+function makeWalkingDecision() {
+    timeTakenWalking += Time.deltaTime;
+    if (timeTakenWalking >= timeTillNextWalkDecision) {
+
+		timeTakenWalking = 0;
+
+		var random: float = Random.Range(0f, 4f);
+
+		walkingForward = false;
+		walkingBackward = false;
+
+		if (random > 3) {
+		    walkingForward = true;
+		} else if (random > 2) {
+		    walkingBackward = true;
+		} 
+	}
+}
+
+function getZVelByWalkingState() {
+    var zVel;
+
+    if (walkingForward) {
+        zVel = walkingSpeed;
+    } else if (walkingBackward) {
+        zVel = -walkingSpeed;
+    } else {
+        zVel = 0f;
+    }
+    
+    return zVel;
+ 
 }
 
 function OnCollisionStay (collision: Collision) {
+
+    // !! doesn't currently support multiple enemies.
+
     if (collision.gameObject.name == "Sword") {
         alive = false;
         var bloodSpout = transform.Find("EnemyUpperBody").Find("BloodSpout").gameObject;
@@ -66,6 +84,9 @@ function OnCollisionStay (collision: Collision) {
 }
 
 function advanceLevel() {
+
+    // !! Doesn't currently support multple players.
+
     var playerController = GameObject.Find("Player").GetComponent("PlayerController");
     if (!playerController.wounded) {
 	    var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");   
