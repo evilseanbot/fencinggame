@@ -2,11 +2,8 @@
 var timeElapsed = 0.0f;
 var phase = 0;
 var prefab : GameObject;
-var onRightSideBefore: boolean = true;
 var onRightSideNow : boolean = true;
 var switchingSides: boolean = false;
-var initiallyWaiting: boolean = false;
-var timeToWait: float = 4f;
 var alive: boolean = true;
 var timeToThrust = 0.5f;
 var enemyUpperBody: GameObject;
@@ -19,13 +16,37 @@ var startingRot: Quaternion;
 var posSpeed = 0.20f;
 var oldZPos: float = 0f;
 
+// Set up the sword positions.
+var swordPositions = new Hashtable();
+swordPositions["rest"] = new Hashtable();
+swordPositions["rest"]["6"] = new Hashtable();
+swordPositions["rest"]["6"]["position"] = new Vector3(3, 1, 8);
+swordPositions["rest"]["6"]["rotation"] = new Vector3(-10, 170, 0);
+
+swordPositions["rest"]["4"] = new Hashtable();
+swordPositions["rest"]["4"]["position"] = new Vector3(-3, 1, 8);
+swordPositions["rest"]["4"]["rotation"] = new Vector3(-10, 190, 0);
+
+swordPositions["attack"] = new Hashtable();
+swordPositions["attack"]["6"] = new Hashtable();
+swordPositions["attack"]["6"]["position"] = new Vector3(1, 1, 15);
+swordPositions["attack"]["6"]["rotation"] = new Vector3(-7, 177, 0);
+
+swordPositions["attack"]["4"] = new Hashtable();
+swordPositions["attack"]["4"]["position"] = new Vector3(-1, 1, 8);
+swordPositions["attack"]["4"]["rotation"] = new Vector3(-7, 183, 0);
+
+
 function Start() {
     var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
-    timeToThrust = 1f / memory.enemyReflexes;
+    timeToThrust = Mathf.Min(0.25f, 1f / memory.enemyReflexes);
     timeToReset = new Array(timeToThrust*0.5f, timeToThrust*0.5f, 0, timeToThrust, 0, timeToThrust, 0, timeToThrust);
     
-    enemyUpperBody = GameObject.Find("EnemyUpperBody");
-    enemy = GameObject.Find("Enemy");
+    // Change this to refer to just 'upperBody', get more symettry between player / enemies.
+    enemy = gameObject.transform.parent.parent.gameObject;
+    enemyUpperBody = enemy.transform.FindChild("EnemyUpperBody").gameObject;    
+    
+    // Possibly change this to allow multiple players / allies.
     player = GameObject.Find("Player");
     
 }
@@ -44,10 +65,6 @@ function FixedUpdate() {
         return;
     }
         
-    if (initiallyWaiting) {
-        wait();
-    }
-
     // Phase 0 is waiting.
     if (phase == 0) {
         startingPos = transform.position;
@@ -114,95 +131,47 @@ function FixedUpdate() {
 }
 
 function thrust() {
+    var selectedSwordPosition;
+
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
 
-    var attackY;
-
-	var fourAttackPos: Vector3 = new Vector3 (-1, 1, 15);
-	attackY = 183 - enemyUpperBody.transform.rotation.y;
-	var fourAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -7, attackY, 0) );
-	fourAttackPos = enemyUpperBody.transform.TransformDirection(fourAttackPos);
-	
-	var sixAttackPos: Vector3 = new Vector3 (1, 1, 15);
-	attackY = 177 - enemyUpperBody.transform.rotation.y;
-	var sixAttackRot: Quaternion = Quaternion.Euler ( new Vector3( -7, attackY, 0) );
-	sixAttackPos = enemyUpperBody.transform.TransformDirection(sixAttackPos);
-
 		
 	if (onRightSideNow) {
-	    targetPos = Vector3.Lerp(startingPos, sixAttackPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
-	    targetRot = Quaternion.Lerp(startingRot, sixAttackRot, timeElapsed / timeToReset[phase]);	
+	    selectedSwordPosition = swordPositions["attack"]["6"];
     } else {
-	    targetPos = Vector3.Lerp(startingPos, fourAttackPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
-	    targetRot = Quaternion.Lerp(startingRot, fourAttackRot, timeElapsed / timeToReset[phase]);	    
+        selectedSwordPosition = swordPositions["attack"]["4"];
     }
-    
-    chasePos(posSpeed);
-			
+
+    setTargetToSwordPosition(selectedSwordPosition);    
+    chasePos(posSpeed);			
 	advancePhaseClock(); 
 }
 
-function wait() {
-	timeElapsed += Time.deltaTime;
-
-	if (timeElapsed > timeToWait) {
-	    timeElapsed = 0;
-	    initiallyWaiting = false;        
-	} else {
-	    return;
-	} 
-}
-
 function recover() {
+    var selectedSwordPosition;
+
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", false);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", true);    
 	
-	var restY;
-	
-	var fourRestPos: Vector3 = new Vector3 (-3, 1, 8);
-	restY = 190 - enemyUpperBody.transform.rotation.y;
-	var fourRestRot: Quaternion = Quaternion.Euler( new Vector3(-10, restY, 0) );
-	fourRestPos = enemyUpperBody.transform.TransformDirection(fourRestPos);		
-
-	var sixRestPos: Vector3 = new Vector3 (3, 1, 8);
-	restY = 170 - enemyUpperBody.transform.rotation.y;
-	var sixRestRot: Quaternion = Quaternion.Euler( new Vector3(-10, restY, 0) );
-	sixRestPos = enemyUpperBody.transform.TransformDirection(sixRestPos);																				
-	
 	if (onRightSideNow) {
-	    targetPos = Vector3.Lerp(startingPos, sixRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
-	    targetRot = Quaternion.Lerp(startingRot, sixRestRot, timeElapsed / timeToReset[phase]);	
+	    selectedSwordPosition = swordPositions["rest"]["6"];
     } else {
-	    targetPos = Vector3.Lerp(startingPos, fourRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
-	    targetRot = Quaternion.Lerp(startingRot, fourRestRot, timeElapsed / timeToReset[phase]);	    
+        selectedSwordPosition = swordPositions["rest"]["4"];
     }
-	
-	chasePos(posSpeed);			    
-			    		    		    
+    
+    setTargetToSwordPosition(selectedSwordPosition);
+	chasePos(posSpeed);
 	advancePhaseClock();        
 }
 
-function moveToHome() {
-    /*
-	var targetPos: Vector3;
-	var targetRot: Quaternion;
-	var enemyTrans: Transform = GameObject.Find("Enemy").transform;
-
-	if (onRightSideNow) {
-	    targetPos = Vector3(4.7f + enemyTrans.position.x, 1.8f + enemyTrans.position.y, -5.9f + enemyTrans.position.z);
-	    targetRot = Quaternion.Euler(11, 199, 0);
-
-	    rigidbody.MovePosition(Vector3.Lerp(transform.position, targetPos, 0.10f));
-	    rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));                               
-	} else {
-	    targetPos = Vector3(-4.7f + enemyTrans.position.x, 1.8f + enemyTrans.position.y, -5.9f + enemyTrans.position.z);
-	    targetRot = Quaternion.Euler(11, 199, 0);
-	    rigidbody.MovePosition(Vector3.Lerp(transform.position, targetPos, 0.10f));
-	    rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));
-	}        
-    */
-	advancePhaseClock();
+function setTargetToSwordPosition(selectedSwordPosition) {
+    var endTargetPos = enemyUpperBody.transform.TransformDirection(selectedSwordPosition["position"]) + enemyUpperBody.transform.position;
+    targetPos = Vector3.Lerp(startingPos, endTargetPos, timeElapsed / timeToReset[phase]);
+    var endTargetRot = Quaternion.Euler(selectedSwordPosition["rotation"].x, 
+         selectedSwordPosition["rotation"].y - enemyUpperBody.transform.rotation.y, 
+         selectedSwordPosition["rotation"].z);
+    targetRot = Quaternion.Lerp(startingRot, endTargetRot, timeElapsed / timeToReset[phase]);	
 }
 
 function chooseSide() {
@@ -226,21 +195,6 @@ function chooseSide() {
 
 function switchSides() {
     recover();
-	advancePhaseClock();
-}
-
-function setSideRotation() {
-    /*
-	if (switchingSides) {
-	   if (onRightSideNow) {
-	       targetRot = Quaternion.Euler(11, 199, 0);
-	       rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));             
-	   } else {
-	       targetRot = Quaternion.Euler(11, 161, 0);           
-	       rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, targetRot, 0.10f));
-	   }
-	}
-	*/
 	advancePhaseClock();
 }
 
