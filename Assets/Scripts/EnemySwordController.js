@@ -170,8 +170,6 @@ function recover() {
 	var sixRestRot: Quaternion = Quaternion.Euler( new Vector3(-10, restY, 0) );
 	sixRestPos = enemyUpperBody.transform.TransformDirection(sixRestPos);																				
 	
-	chasePos(posSpeed);
-
 	if (onRightSideNow) {
 	    targetPos = Vector3.Lerp(startingPos, sixRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
 	    targetRot = Quaternion.Lerp(startingRot, sixRestRot, timeElapsed / timeToReset[phase]);	
@@ -179,7 +177,9 @@ function recover() {
 	    targetPos = Vector3.Lerp(startingPos, fourRestPos + enemyUpperBody.transform.position, timeElapsed / timeToReset[phase]);
 	    targetRot = Quaternion.Lerp(startingRot, fourRestRot, timeElapsed / timeToReset[phase]);	    
     }
-			    
+	
+	chasePos(posSpeed);			    
+			    		    		    
 	advancePhaseClock();        
 }
 
