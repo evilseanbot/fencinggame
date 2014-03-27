@@ -64,6 +64,8 @@ function OnCollisionStay (collision: Collision) {
     if (collision.gameObject.name == "Sword") {
         alive = false;
         var bloodSpout = transform.Find("EnemyUpperBody").Find("BloodSpout").gameObject;
+        
+        // Doesn't support multiple allies yet.
         var EnemySword = GameObject.Find("Sword");
         bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
         bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
@@ -72,14 +74,14 @@ function OnCollisionStay (collision: Collision) {
     
 
         rigidbody.isKinematic = false;
-        var enemySword = GameObject.Find("EnemySword");
+        var enemySword = transform.Find("EnemyUpperBody").Find("EnemySword").gameObject;
         enemySword.GetComponent("EnemySwordController").alive = false;
         enemySword.rigidbody.constraints = RigidbodyConstraints.None;
         enemySword.rigidbody.useGravity = true;
         enemySword.rigidbody.drag = 0;
         enemySword.rigidbody.angularDrag = 0.5;
         
-        Invoke("advanceLevel", 5f);        
+        //Invoke("advanceLevel", 5f);        
     }
 }
 

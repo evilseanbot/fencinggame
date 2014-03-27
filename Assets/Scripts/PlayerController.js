@@ -1,12 +1,16 @@
 ﻿private var zVel = 0f;
 private var xVel = 0f;
+private var lockonDist = 100f;
 var wounded = false;
 
 function FixedUpdate () {
     zVel = 0f;
     xVel = 0f;
     var walkingSpeed = 0.12f;
-    
+    var rotSpeed = 60f;
+
+    var enemy = closestEnemy();
+            
     if (lunging()) {
         walkingSpeed = 0.06f;
     }
@@ -18,10 +22,20 @@ function FixedUpdate () {
     }
 
     if(Input.GetKey("d")) {
-        xVel = walkingSpeed;
+        if (enemy == null) {
+            transform.Rotate(Vector3.up * (rotSpeed * Time.deltaTime));
+        } else {
+            xVel = walkingSpeed;
+        }
     } else if (Input.GetKey("a")) {
-        xVel = -walkingSpeed;
+        if (enemy == null) {
+            transform.Rotate(-Vector3.up * (rotSpeed * Time.deltaTime));
+        } else {
+            xVel = -walkingSpeed;
+        }
     }
+    
+    
     
     if (Input.GetKey("q")) {
         startLunging();    
@@ -49,10 +63,48 @@ function FixedUpdate () {
     transform.position += moveDirection;
     
     
-    // !!! Usage of reference to enemy, should change to closest enemy eventually.
-    var enemyTrans = GameObject.Find("Enemy").transform;
-    transform.LookAt(enemyTrans);
+    if (enemy != null) {
+        turnTowards(enemy);
+    }
     
+}
+
+function turnTowards(enemy) {
+	var enemyTrans = enemy.transform;
+	var targetDir = enemyTrans.position - transform.position;
+	var step = 1f * Time.deltaTime;
+	var lookDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+	transform.rotation = Quaternion.LookRotation(lookDir);
+}
+
+function closestEnemy() {
+	var shortestDist = null;
+	var closestEnemy = null;
+	var distance = 0;
+
+    var enemies = GameObject.FindGameObjectsWithTag("enemy");
+    if (enemies == null) {
+        return null;
+    } else {
+
+        for (i in enemies) {
+            if (i.GetComponent("EnemyTargetController").alive) {
+	            distance = Vector3.Distance(transform.position, i.transform.position);    
+	            if (shortestDist == null || shortestDist > distance) {
+	                shortestDist = distance;
+	                closestEnemy = i;
+	            }
+	        }
+        }        
+    }
+    
+    // Don't return any enemy if distance from any enemy is greater than lockon Distance.
+    if (shortestDist != null) {
+        if (shortestDist > lockonDist) {
+            return null;
+        }
+    }
+    return closestEnemy;
 }
 
 function startLunging() {

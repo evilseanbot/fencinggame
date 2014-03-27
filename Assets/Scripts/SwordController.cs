@@ -5,10 +5,12 @@ using Leap;
 public class SwordController : MonoBehaviour {
 	LeapManager myLeapManagerInstance;
 	Transform upperBodyTrans;
+	Transform player;
 	
 	void Start () {
 		myLeapManagerInstance = (GameObject.Find("LeapManager") as GameObject).GetComponent(typeof(LeapManager)) as LeapManager;
 		upperBodyTrans = GameObject.Find("UpperBody").transform; 
+		player = GameObject.Find("Player").transform;
 	}
 	
 	// Update is called once per frame
@@ -23,7 +25,7 @@ public class SwordController : MonoBehaviour {
 	Quaternion getTargetRot() {
 		Leap.Hand mHand = myLeapManagerInstance.frontmostHand();
 		Vector3 palm_natural = new Vector3(mHand.Direction.Pitch,-mHand.Direction.Yaw,mHand.PalmNormal.Roll);
-		palm_natural.y -= upperBodyTrans.rotation.y;
+		palm_natural.y -= (player.eulerAngles.y/90);
 		Quaternion targetRot = Quaternion.Euler (palm_natural*-90); 
 		targetRot = Quaternion.Lerp(transform.localRotation, targetRot, 0.5f);
 		return targetRot;
@@ -36,7 +38,7 @@ public class SwordController : MonoBehaviour {
 
 	Vector3 getTargetPos() {
 		Vector3 targetPos = myLeapManagerInstance.frontmostHand().PalmPosition.ToUnityTranslated();
-		targetPos = upperBodyTrans.TransformDirection (targetPos);
+		targetPos = player.TransformDirection (targetPos);
 		targetPos.x += upperBodyTrans.position.x;
 		targetPos.y += upperBodyTrans.position.y;
 		targetPos.z += upperBodyTrans.position.z;
