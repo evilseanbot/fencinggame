@@ -14,12 +14,7 @@
 	        player.rigidbody.isKinematic = false;
 	        player.rigidbody.useGravity = true;
 	        
-	        var sword = GameObject.Find("Sword");
-	        //sword.GetComponent("SwordController").alive = false;
-	        //sword.rigidbody.useGravity = true;
-	        //sword.rigidbody.drag = 0;
-	        //sword.rigidbody.angularDrag = 0.5;
-	        
+	        GameObject.Destroy(GameObject.Find("LevelText"));	        	        
 	        GameObject.Find("ResetText").guiText.text = 'Press "R" to retry';
 	        player.GetComponent("PlayerController").wounded = true;
 	     }
