@@ -60,7 +60,9 @@ function FixedUpdate () {
         
     var moveDirection = new Vector3(xVel, 0, zVel);
     moveDirection = transform.TransformDirection(moveDirection);
-    transform.position += moveDirection;
+    var newPosition = transform.position + moveDirection;
+    rigidbody.MovePosition(newPosition);
+    //transform.position += moveDirection;
     
     
     if (enemy != null) {
