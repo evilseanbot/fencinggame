@@ -4,6 +4,7 @@ var timeTillNextWalkDecision: float = 1f;
 var timeTakenWalking: float = 0f;
 var walkingSpeed = 0.06f;
 var alive = true;
+var bloodSpoutObject : GameObject;
 
 function FixedUpdate() {
     if (alive) {
@@ -63,7 +64,9 @@ function OnCollisionStay (collision: Collision) {
 
     if (collision.gameObject.name == "Sword") {
         alive = false;
-        var bloodSpout = transform.Find("EnemyUpperBody").Find("BloodSpout").gameObject;
+        //var bloodSpout = transform.Find("EnemyUpperBody").Find("BloodSpout").gameObject;
+        
+        var bloodSpout = GameObject.Instantiate(bloodSpoutObject, transform.position, transform.rotation);
         
         // Doesn't support multiple allies yet.
         var EnemySword = GameObject.Find("Sword");
