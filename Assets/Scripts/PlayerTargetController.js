@@ -1,4 +1,6 @@
-﻿function OnCollisionStay (collision: Collision) {
+﻿var bloodSpoutObject : GameObject;
+
+function OnCollisionStay (collision: Collision) {
     if (collision.gameObject.name == "EnemySword") {
         if (madeImpact(collision)) {
             die();
@@ -10,7 +12,10 @@ function die() {
 	var EnemySword = GameObject.Find("EnemySword");
 	var player = GameObject.Find("Player");
 	var upperBody = player.transform.FindChild("UpperBody");
-	var bloodSpout = upperBody.FindChild("PlayerBloodSpout").gameObject;
+//	var bloodSpout = upperBody.FindChild("PlayerBloodSpout").gameObject;
+
+    var bloodSpout = GameObject.Instantiate(bloodSpoutObject, transform.position, transform.rotation);
+
 
 	bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
 	bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
@@ -19,6 +24,8 @@ function die() {
 
 	player.rigidbody.isKinematic = false;
 	player.rigidbody.useGravity = true;
+    player.rigidbody.constraints = RigidbodyConstraints.None;
+    player.rigidbody.drag = 1;
 
 	GameObject.Destroy(GameObject.Find("LevelText"));	        	        
 	GameObject.Find("ResetText").guiText.text = 'Press "R" to retry';
