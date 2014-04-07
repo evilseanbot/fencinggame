@@ -1,18 +1,18 @@
 ﻿private var zVel = 0f;
 private var xVel = 0f;
-private var lockonDist = 100f;
+private var lockonDist = 10f;
 var wounded = false;
 
 function FixedUpdate () {
     zVel = 0f;
     xVel = 0f;
-    var walkingSpeed = 0.12f;
+    var walkingSpeed = 0.7f;
     var rotSpeed = 60f;
 
     var enemy = closestEnemy();
             
     if (lunging()) {
-        walkingSpeed = 0.06f;
+        walkingSpeed = 0.35f;
     }
 
     if(Input.GetKey("w")) {
@@ -58,7 +58,7 @@ function FixedUpdate () {
         restartGame();
     }
         
-    var moveDirection = new Vector3(xVel, 0, zVel);
+    var moveDirection = new Vector3(xVel * Time.deltaTime, 0, zVel * Time.deltaTime);
     moveDirection = transform.TransformDirection(moveDirection);
     var newPosition = transform.position + moveDirection;
     rigidbody.MovePosition(newPosition);

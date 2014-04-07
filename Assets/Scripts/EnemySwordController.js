@@ -13,27 +13,27 @@ var targetPos: Vector3;
 var targetRot: Quaternion;
 var startingPos: Vector3;
 var startingRot: Quaternion;
-var posSpeed = 0.20f;
+private var posSpeed = 0.02f;
 var oldZPos: float = 0f;
 
 // Set up the sword positions.
 var swordPositions = new Hashtable();
 swordPositions["rest"] = new Hashtable();
 swordPositions["rest"]["6"] = new Hashtable();
-swordPositions["rest"]["6"]["position"] = new Vector3(3, 1, 8);
+swordPositions["rest"]["6"]["position"] = new Vector3(0.3f, 2.1f, -0.4f);
 swordPositions["rest"]["6"]["rotation"] = new Vector3(-10, -10, 0);
 
 swordPositions["rest"]["4"] = new Hashtable();
-swordPositions["rest"]["4"]["position"] = new Vector3(-3, 1, 8);
+swordPositions["rest"]["4"]["position"] = new Vector3(-0.3f, 2.1f, -0.4f);
 swordPositions["rest"]["4"]["rotation"] = new Vector3(-10, 10, 0);
 
 swordPositions["attack"] = new Hashtable();
 swordPositions["attack"]["6"] = new Hashtable();
-swordPositions["attack"]["6"]["position"] = new Vector3(1, 1, 15);
+swordPositions["attack"]["6"]["position"] = new Vector3(0.1f, 2.1f, 0f);
 swordPositions["attack"]["6"]["rotation"] = new Vector3(-7, -3, 0);
 
 swordPositions["attack"]["4"] = new Hashtable();
-swordPositions["attack"]["4"]["position"] = new Vector3(-1, 1, 8);
+swordPositions["attack"]["4"]["position"] = new Vector3(-0.1f, 2.1f, 0f);
 swordPositions["attack"]["4"]["rotation"] = new Vector3(-7, 3, 0);
 
 

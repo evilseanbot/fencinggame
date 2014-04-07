@@ -2,7 +2,7 @@
 var walkingBackward: boolean = false;
 var timeTillNextWalkDecision: float = 1f;
 var timeTakenWalking: float = 0f;
-var walkingSpeed = 0.06f;
+private var walkingSpeed = 0.7f;
 var alive = true;
 var bloodSpoutObject : GameObject;
 
@@ -19,9 +19,11 @@ function walk() {
     
     zVel = getZVelByWalkingState();
        
-    var moveDirection = new Vector3(0, 0, zVel);
+    var moveDirection = new Vector3(0, 0, zVel * Time.deltaTime);
     moveDirection = transform.TransformDirection(moveDirection);
-    transform.position += moveDirection;
+    var newPosition = transform.position + moveDirection;
+    rigidbody.MovePosition(newPosition);
+    //transform.position = transform.position + (moveDirection);
 }
 
 function makeWalkingDecision() {
