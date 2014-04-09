@@ -6,8 +6,8 @@ var wounded = false;
 function FixedUpdate () {
     zVel = 0f;
     xVel = 0f;
-    var walkingSpeed = 0.7f;
-    var rotSpeed = 60f;
+    var walkingSpeed = 1.4f;//0.7f;
+    var rotSpeed = 30f;//60f;
 
     var enemy = closestEnemy();
             
