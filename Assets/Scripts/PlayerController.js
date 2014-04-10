@@ -2,12 +2,20 @@
 private var xVel = 0f;
 private var lockonDist = 10f;
 var wounded = false;
+private var debugMode = true;
+private var walkingSpeed = 1.4f;
+private var rotSpeed = 30f;
+
+function Start() {
+    if (debugMode) {
+        walkingSpeed = 14f;
+        rotSpeed = 300f;
+    }
+}
 
 function FixedUpdate () {
     zVel = 0f;
     xVel = 0f;
-    var walkingSpeed = 1.4f;//0.7f;
-    var rotSpeed = 30f;//60f;
 
     var enemy = closestEnemy();
             

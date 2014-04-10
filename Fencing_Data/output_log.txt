@@ -15,22 +15,22 @@ Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\As
 Loading C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\LeapCSharp.NET3.5.dll (this message is harmless)
 Loading C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
-- Completed reload, in  0.342 seconds
+- Completed reload, in  0.445 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\Boo.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\System.Core.dll (this message is harmless)
-UnloadTime: 2.292929 ms
+UnloadTime: 3.921220 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 568.
-Total: 2.753860 ms (FindLiveObjects: 0.104790 ms CreateObjectMapping: 0.029311 ms MarkObjects: 0.434550 ms  DeleteObjects: 0.052028 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3607.
+Total: 9.217176 ms (FindLiveObjects: 1.093339 ms CreateObjectMapping: 0.164880 ms MarkObjects: 1.472931 ms  DeleteObjects: 0.148025 ms)
 
-UnloadTime: 2.525226 ms
+UnloadTime: 16.415485 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 566.
-Total: 2.523761 ms (FindLiveObjects: 0.068883 ms CreateObjectMapping: 0.033708 ms MarkObjects: 0.414031 ms  DeleteObjects: 0.017587 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 3605.
+Total: 4.497202 ms (FindLiveObjects: 0.849316 ms CreateObjectMapping: 0.172208 ms MarkObjects: 0.984885 ms  DeleteObjects: 0.033708 ms)
 
