@@ -15,22 +15,28 @@ Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\As
 Loading C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\LeapCSharp.NET3.5.dll (this message is harmless)
 Loading C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
-- Completed reload, in  0.445 seconds
+- Completed reload, in  0.450 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\Boo.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\System.Core.dll (this message is harmless)
-UnloadTime: 3.921220 ms
+UnloadTime: 6.323335 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3607.
-Total: 9.217176 ms (FindLiveObjects: 1.093339 ms CreateObjectMapping: 0.164880 ms MarkObjects: 1.472931 ms  DeleteObjects: 0.148025 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 3617.
+Total: 8.158266 ms (FindLiveObjects: 1.499309 ms CreateObjectMapping: 0.094531 ms MarkObjects: 2.972238 ms  DeleteObjects: 0.126774 ms)
 
-UnloadTime: 16.415485 ms
+UnloadTime: 33.885426 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 3605.
-Total: 4.497202 ms (FindLiveObjects: 0.849316 ms CreateObjectMapping: 0.172208 ms MarkObjects: 0.984885 ms  DeleteObjects: 0.033708 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 3615.
+Total: 5.883654 ms (FindLiveObjects: 1.371802 ms CreateObjectMapping: 0.137033 ms MarkObjects: 1.346154 ms  DeleteObjects: 0.041769 ms)
+
+UnloadTime: 22.108589 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 3615.
+Total: 6.830432 ms (FindLiveObjects: 1.353482 ms CreateObjectMapping: 0.237427 ms MarkObjects: 2.212324 ms  DeleteObjects: 0.039571 ms)
 

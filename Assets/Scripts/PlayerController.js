@@ -2,7 +2,7 @@
 private var xVel = 0f;
 private var lockonDist = 10f;
 var wounded = false;
-private var debugMode = true;
+private var debugMode = false;
 private var walkingSpeed = 1.4f;
 private var rotSpeed = 30f;
 
@@ -14,6 +14,14 @@ function Start() {
 }
 
 function FixedUpdate () {
+    var swordUp = GameObject.Find("Sword").GetComponent("SwordController").swordUp;
+
+    if (swordUp) {
+        walkingSpeed = 1.4f;
+    } else {
+        walkingSpeed = 2.8f;
+    }
+
     zVel = 0f;
     xVel = 0f;
 
@@ -30,13 +38,13 @@ function FixedUpdate () {
     }
 
     if(Input.GetKey("d")) {
-        if (enemy == null) {
+        if (enemy == null || !swordUp) {
             transform.Rotate(Vector3.up * (rotSpeed * Time.deltaTime));
         } else {
             xVel = walkingSpeed;
         }
     } else if (Input.GetKey("a")) {
-        if (enemy == null) {
+        if (enemy == null || !swordUp) {
             transform.Rotate(-Vector3.up * (rotSpeed * Time.deltaTime));
         } else {
             xVel = -walkingSpeed;
@@ -73,7 +81,7 @@ function FixedUpdate () {
     //transform.position += moveDirection;
     
     
-    if (enemy != null) {
+    if (enemy != null && swordUp) {
         turnTowards(enemy);
     }
     
