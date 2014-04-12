@@ -2,7 +2,7 @@
 private var xVel = 0f;
 private var lockonDist = 10f;
 var wounded = false;
-private var debugMode = false;
+private var debugMode = true;
 private var walkingSpeed = 1.4f;
 private var rotSpeed = 30f;
 
@@ -21,6 +21,12 @@ function FixedUpdate () {
     } else {
         walkingSpeed = 2.8f;
     }
+
+    if (debugMode) {
+        walkingSpeed = 14f;
+        rotSpeed = 300f;
+    }
+
 
     zVel = 0f;
     xVel = 0f;
@@ -92,7 +98,9 @@ function turnTowards(enemy) {
 	var targetDir = enemyTrans.position - transform.position;
 	var step = 1f * Time.deltaTime;
 	var lookDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
-	transform.rotation = Quaternion.LookRotation(lookDir);
+	var lookRot = Quaternion.LookRotation(lookDir);
+	transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lookRot.eulerAngles.y, transform.rotation.eulerAngles.z);
+	//transform.rotation = Quaternion.LookRotation(lookDir);
 }
 
 function closestEnemy() {

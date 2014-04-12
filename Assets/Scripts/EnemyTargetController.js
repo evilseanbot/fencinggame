@@ -76,6 +76,9 @@ function OnCollisionStay (collision: Collision) {
         bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
         bloodSpout.transform.rotation.z += 180;
         bloodSpout.particleSystem.Play();    
+        
+        rigidbody.constraints = RigidbodyConstraints.None;
+        rigidbody.drag = 1;
     
 
         rigidbody.isKinematic = false;
