@@ -2,7 +2,7 @@
 private var xVel = 0f;
 private var lockonDist = 10f;
 var wounded = false;
-private var debugMode = true;
+private var debugMode = false;
 private var walkingSpeed = 1.4f;
 private var rotSpeed = 30f;
 
@@ -36,34 +36,35 @@ function FixedUpdate () {
     if (lunging()) {
         walkingSpeed = 0.35f;
     }
+    
+    if (!wounded) {
+	    if(Input.GetKey("w")) {
+	        zVel = walkingSpeed;
+	    } else if (Input.GetKey("s")) {
+	        zVel = -walkingSpeed;
+	    }
 
-    if(Input.GetKey("w")) {
-        zVel = walkingSpeed;
-    } else if (Input.GetKey("s")) {
-        zVel = -walkingSpeed;
-    }
+	    if(Input.GetKey("d")) {
+	        if (enemy == null || !swordUp) {
+	            transform.Rotate(Vector3.up * (rotSpeed * Time.deltaTime));
+	        } else {
+	            xVel = walkingSpeed;
+	        }
+	    } else if (Input.GetKey("a")) {
+	        if (enemy == null || !swordUp) {
+	            transform.Rotate(-Vector3.up * (rotSpeed * Time.deltaTime));
+	        } else {
+	            xVel = -walkingSpeed;
+	        }
+	    }
+	    
+		if (Input.GetKey("q")) {
+	        startLunging();    
+	    } else {
+	        startUnLunging();
+	    }
 
-    if(Input.GetKey("d")) {
-        if (enemy == null || !swordUp) {
-            transform.Rotate(Vector3.up * (rotSpeed * Time.deltaTime));
-        } else {
-            xVel = walkingSpeed;
-        }
-    } else if (Input.GetKey("a")) {
-        if (enemy == null || !swordUp) {
-            transform.Rotate(-Vector3.up * (rotSpeed * Time.deltaTime));
-        } else {
-            xVel = -walkingSpeed;
-        }
-    }
-    
-    
-    
-    if (Input.GetKey("q")) {
-        startLunging();    
-    } else {
-        startUnLunging();
-    }
+	}    
     
     // Motion lunging controls.
     /*    

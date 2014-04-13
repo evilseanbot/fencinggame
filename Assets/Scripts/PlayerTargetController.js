@@ -24,6 +24,8 @@ function die() {
 
 	player.rigidbody.isKinematic = false;
 	player.rigidbody.useGravity = true;
+    player.rigidbody.constraints = RigidbodyConstraints.None;
+    player.rigidbody.drag = 1;	
 
 	GameObject.Destroy(GameObject.Find("LevelText"));	        	        
 	GameObject.Find("ResetText").guiText.text = 'Press "R" to retry';
