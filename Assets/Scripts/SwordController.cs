@@ -58,7 +58,7 @@ public class SwordController : MonoBehaviour {
 			targetPos = Vector3.Lerp (transform.localPosition, targetPos, 0.5f);     
 			return targetPos;
 		} else {
-			return player.TransformDirection( new Vector3 (0f, 1.75f, -1f)) + upperBodyTrans.position; 
+			return player.TransformDirection( new Vector3 (0f, 1.75f, 0f)) + upperBodyTrans.position; 
 		}
 	}
 

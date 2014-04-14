@@ -15,7 +15,10 @@ Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\As
 Loading C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\LeapCSharp.NET3.5.dll (this message is harmless)
 Loading C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
-- Completed reload, in  0.327 seconds
+- Completed reload, in  0.173 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\Boo.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\UnityScript.Lang.dll (this message is harmless)
+Platform assembly: C:\Users\Seanna\Documents\FencingGame\Fencing_Data\Managed\System.Core.dll (this message is harmless)

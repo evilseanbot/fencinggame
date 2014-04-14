@@ -15,7 +15,7 @@ namespace Leap
 	public static class LeapExtensions
 	{
 		public static Vector3 InputScale = new Vector3(0.008f, 0.001f, 0.0015f);
-		public static Vector3 InputOffset = new Vector3(0f, 1.5f, -1f);
+		public static Vector3 InputOffset = new Vector3(0f, 1.5f, 0f);
 		
 		//For Directions
 		public static Vector3 ToUnity(this Vector lv)
