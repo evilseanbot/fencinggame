@@ -13,7 +13,9 @@ var targetPos: Vector3;
 var targetRot: Quaternion;
 var startingPos: Vector3;
 var startingRot: Quaternion;
-private var posSpeed = 0.02f;
+private var posSpeed = 0.015f;
+private var rotSpeed = 3f;
+
 var oldZPos: float = 0f;
 
 // Set up the sword positions.
@@ -204,9 +206,7 @@ function chasePos(speed) {
 	var moveRot = Quaternion.Euler(0, 0, 0);
 
 	change = targetPos - transform.position;
-	
-	rotSpeed = 4f;
-	
+		
 	for (var i = 0; i < 3; i++) {
 	
 	    change[i] = Mathf.Min(change[i], speed);

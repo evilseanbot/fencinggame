@@ -39,7 +39,7 @@ public class SwordController : MonoBehaviour {
 			targetRot = Quaternion.Lerp(transform.localRotation, targetRot, 0.5f);
 			return targetRot;
 	    } else {
-	      return Quaternion.Euler(22.5f, 90 + (player.eulerAngles.y), 0);
+	      return Quaternion.Euler(22f, 180 + (player.eulerAngles.y), 0);
 	    }
 	}
 
@@ -58,7 +58,7 @@ public class SwordController : MonoBehaviour {
 			targetPos = Vector3.Lerp (transform.localPosition, targetPos, 0.5f);     
 			return targetPos;
 		} else {
-			return player.TransformDirection( new Vector3 (0f, 1.75f, 0f)) + upperBodyTrans.position; 
+			return player.TransformDirection( new Vector3 (0.5f, 1.75f, 0.3f)) + upperBodyTrans.position; 
 		}
 	}
 
