@@ -62,34 +62,32 @@ function getZVelByWalkingState() {
 
 function OnCollisionStay (collision: Collision) {
 
-    // !! doesn't currently support multiple enemies.
-
     if (collision.gameObject.name == "Sword") {
-        alive = false;
-        //var bloodSpout = transform.Find("EnemyUpperBody").Find("BloodSpout").gameObject;
-        
-        var bloodSpout = GameObject.Instantiate(bloodSpoutObject, transform.position, transform.rotation);
-        
-        // Doesn't support multiple allies yet.
-        var EnemySword = GameObject.Find("Sword");
-        bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
-        bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
-        bloodSpout.transform.rotation.z += 180;
-        bloodSpout.particleSystem.Play();    
-        
-        rigidbody.constraints = RigidbodyConstraints.None;
-        rigidbody.drag = 1;
-    
+        if (collision.gameObject.GetComponent("SwordController").swordUp) {
+	        alive = false;        
+	        var bloodSpout = GameObject.Instantiate(bloodSpoutObject, transform.position, transform.rotation);
+	        
+	        // Doesn't support multiple allies yet.
+	        var EnemySword = GameObject.Find("Sword");
+	        bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
+	        bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
+	        bloodSpout.transform.rotation.z += 180;
+	        bloodSpout.particleSystem.Play();    
+	        
+	        rigidbody.constraints = RigidbodyConstraints.None;
+	        rigidbody.drag = 1;
+	    
 
-        rigidbody.isKinematic = false;
-        var enemySword = transform.Find("EnemyUpperBody").Find("EnemySword").gameObject;
-        enemySword.GetComponent("EnemySwordController").alive = false;
-        enemySword.rigidbody.constraints = RigidbodyConstraints.None;
-        enemySword.rigidbody.useGravity = true;
-        enemySword.rigidbody.drag = 0;
-        enemySword.rigidbody.angularDrag = 0.5;
-        
-        //Invoke("advanceLevel", 5f);        
+	        rigidbody.isKinematic = false;
+	        var enemySword = transform.Find("EnemyUpperBody").Find("EnemySword").gameObject;
+	        enemySword.GetComponent("EnemySwordController").alive = false;
+	        enemySword.rigidbody.constraints = RigidbodyConstraints.None;
+	        enemySword.rigidbody.useGravity = true;
+	        enemySword.rigidbody.drag = 0;
+	        enemySword.rigidbody.angularDrag = 0.5;
+	        
+	        //Invoke("advanceLevel", 5f);        
+	    }
     }
 }
 
