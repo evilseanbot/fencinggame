@@ -19,6 +19,10 @@ public class SwordController : MonoBehaviour {
 		Leap.Hand mHand = myLeapManagerInstance.frontmostHand();
 
 		if (mHand.IsValid) {
+			if (!swordUp) {
+				audio.Play();
+			}
+
 			swordUp = true;
 		} else {
 			swordUp = false;

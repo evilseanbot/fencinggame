@@ -64,6 +64,10 @@ function OnCollisionStay (collision: Collision) {
 
     if (collision.gameObject.name == "Sword") {
         if (collision.gameObject.GetComponent("SwordController").swordUp) {
+            if (alive) {
+                audio.Play();
+            }
+        
 	        alive = false;        
 	        var bloodSpout = GameObject.Instantiate(bloodSpoutObject, transform.position, transform.rotation);
 	        
