@@ -2,14 +2,71 @@
 var walkingBackward: boolean = false;
 var timeTillNextWalkDecision: float = 1f;
 var timeTakenWalking: float = 0f;
-private var walkingSpeed = 0.7f;
+private var walkingSpeed = 1.4f;
+private var chasingSpeed = 2.8f;
 var alive = true;
 var bloodSpoutObject : GameObject;
+var closestOpponentZone: int = 4;
+private var opponent: GameObject;
+
+function Start() {
+    opponent = GameObject.Find("Player");
+}
 
 function FixedUpdate() {
-    if (alive) {
-        walk();
-    }        
+    closestOpponentZone = getClosestOpponentZone();
+    
+    if (closestOpponentZone == 3) {
+        chase();
+    }
+
+    if (closestOpponentZone == 1 | closestOpponentZone == 2) {
+	    if (alive) {
+	        walk();
+	    }        
+	}
+}
+
+function getClosestOpponentZone() {
+    // Doesn't support multiple allies, fiddle with code later for that.
+
+	var shortestDist = null;
+	var distance = 0;
+
+    if (opponent.GetComponent("PlayerController").wounded) {
+        return 4;
+    }
+    
+	distance = Vector3.Distance(transform.position, opponent.transform.position);    
+	
+    if (shortestDist == null || shortestDist > distance) {
+        shortestDist = distance;
+    }
+    
+    if (shortestDist > 12) {
+        return 4;
+    } else if (shortestDist > 6) {
+        return 3;
+    } else if (shortestDist > 3) {
+        return 2;
+    } else {
+        return 1;
+    }    
+}
+
+
+function chase() {
+    var zVel = chasingSpeed;
+    
+	var targetDir = opponent.transform.position - transform.position;
+	var lookDir = Vector3.RotateTowards(transform.forward, targetDir, 1f, 0.0f);
+	var lookRot = Quaternion.LookRotation(lookDir);
+	transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lookRot.eulerAngles.y, transform.rotation.eulerAngles.z);
+
+    var moveDirection = new Vector3(0, 0, zVel * Time.deltaTime);
+    moveDirection = transform.TransformDirection(moveDirection);
+    var newPosition = transform.position + moveDirection;
+    rigidbody.MovePosition(newPosition);    
 }
 
 function walk() {
@@ -42,6 +99,11 @@ function makeWalkingDecision() {
 		} else if (random > 2) {
 		    walkingBackward = true;
 		} 
+		
+		if (walkingBackward && closestOpponentZone == 2) {
+		    walkingFoward = true;
+		    walkingBackward = false;
+		}
 	}
 }
 

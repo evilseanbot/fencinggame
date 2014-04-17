@@ -32,7 +32,7 @@ function FixedUpdate () {
     xVel = 0f;
 
     var enemy = closestEnemy();
-            
+                    
     if (lunging()) {
         walkingSpeed = 0.35f;
     }

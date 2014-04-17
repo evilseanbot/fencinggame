@@ -63,6 +63,17 @@ function advancePhaseClock() {
 }
 
 function FixedUpdate() {
+    closestOpponentZone = enemy.GetComponent("EnemyTargetController").closestOpponentZone;
+    if (closestOpponentZone == 4) {
+        return;
+    }
+    
+    if (closestOpponentZone == 3) {
+        transform.rotation = Quaternion.Euler(-22f, (enemyUpperBody.transform.eulerAngles.y), 0);
+        transform.position = enemyUpperBody.transform.TransformDirection( new Vector3 (0f, 1.75f, 0.5f)) + enemyUpperBody.transform.position; 
+        
+    }
+
     if (!alive) {
         return;
     }
