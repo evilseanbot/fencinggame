@@ -28,7 +28,7 @@ function die() {
     player.rigidbody.drag = 1;	
 
 	GameObject.Destroy(GameObject.Find("LevelText"));	        	        
-	GameObject.Find("ResetText").guiText.text = 'Press "R" to retry';
+	GameObject.Find("ResetText").GetComponent("TextMesh").text = 'Press "R" to retry';
 	player.GetComponent("PlayerController").wounded = true;
 }
 
