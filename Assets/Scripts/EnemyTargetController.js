@@ -15,15 +15,14 @@ function Start() {
 
 function FixedUpdate() {
     closestOpponentZone = getClosestOpponentZone();
-    
-    if (closestOpponentZone == 3) {
-        chase();
-    }
+    if (alive) {
+	    if (closestOpponentZone == 3) {
+	        chase();
+	    }
 
-    if (closestOpponentZone == 1 | closestOpponentZone == 2) {
-	    if (alive) {
+	    if (closestOpponentZone == 1 | closestOpponentZone == 2) {
 	        walk();
-	    }        
+		}
 	}
 }
 
@@ -43,7 +42,7 @@ function getClosestOpponentZone() {
         shortestDist = distance;
     }
     
-    if (shortestDist > 12) {
+    if (shortestDist > 24) {
         return 4;
     } else if (shortestDist > 6) {
         return 3;
@@ -101,7 +100,7 @@ function makeWalkingDecision() {
 		} 
 		
 		if (walkingBackward && closestOpponentZone == 2) {
-		    walkingFoward = true;
+		    walkingForward = true;
 		    walkingBackward = false;
 		}
 	}
