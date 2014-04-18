@@ -8,6 +8,9 @@ public class SwordController : MonoBehaviour {
 	Transform player;
 	public bool swordUp = false;
 
+	public AudioClip swordDraw;
+	public AudioClip swordSheath;
+
 	void Start () {
 		myLeapManagerInstance = (GameObject.Find("LeapManager") as GameObject).GetComponent(typeof(LeapManager)) as LeapManager;
 		upperBodyTrans = GameObject.Find("UpperBody").transform; 
@@ -25,6 +28,10 @@ public class SwordController : MonoBehaviour {
 
 			swordUp = true;
 		} else {
+			if (swordUp) {
+				AudioSource.PlayClipAtPoint(swordSheath, transform.position, 0.25f);
+			}
+
 			swordUp = false;
 		}
 

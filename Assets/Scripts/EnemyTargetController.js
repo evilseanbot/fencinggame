@@ -8,14 +8,27 @@ var alive = true;
 var bloodSpoutObject : GameObject;
 var closestOpponentZone: int = 4;
 private var opponent: GameObject;
+var swordSheathSound: AudioClip;
+var swordSheathSoundTime: float = 0;
+
 
 function Start() {
     opponent = GameObject.Find("Player");
 }
 
 function FixedUpdate() {
-    closestOpponentZone = getClosestOpponentZone();
     if (alive) {
+	    var newZone = getClosestOpponentZone();
+	    
+	    if (closestOpponentZone == 3 && newZone < 3) {
+	        if (Time.time > swordSheathSoundTime) {
+	            AudioSource.PlayClipAtPoint(swordSheathSound, transform.position);
+	            swordSheathSoundTime = Time.time + swordSheathSound.length;
+	        }
+	    }
+
+	    closestOpponentZone = newZone;
+	    
 	    if (closestOpponentZone == 3) {
 	        chase();
 	    }
