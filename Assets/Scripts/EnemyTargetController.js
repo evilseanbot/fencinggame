@@ -8,6 +8,8 @@ var alive = true;
 var bloodSpoutObject : GameObject;
 var closestOpponentZone: int = 4;
 private var opponent: GameObject;
+var swordDrawSound: AudioClip;
+var swordDrawSoundTime: float = 0;
 var swordSheathSound: AudioClip;
 var swordSheathSoundTime: float = 0;
 
@@ -21,11 +23,19 @@ function FixedUpdate() {
 	    var newZone = getClosestOpponentZone();
 	    
 	    if (closestOpponentZone == 3 && newZone < 3) {
+	        if (Time.time > swordDrawSoundTime) {
+	            AudioSource.PlayClipAtPoint(swordDrawSound, transform.position);
+	            swordDrawSoundTime = Time.time + swordDrawSound.length;
+	        }
+	    }
+	    
+	    if (closestOpponentZone == 2 && newZone > 2) {
 	        if (Time.time > swordSheathSoundTime) {
-	            AudioSource.PlayClipAtPoint(swordSheathSound, transform.position);
+	            AudioSource.PlayClipAtPoint(swordSheathSound, transform.position, 0.25f);
 	            swordSheathSoundTime = Time.time + swordSheathSound.length;
 	        }
 	    }
+	    
 
 	    closestOpponentZone = newZone;
 	    
