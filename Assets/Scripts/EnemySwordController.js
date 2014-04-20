@@ -40,8 +40,8 @@ swordPositions["attack"]["4"]["rotation"] = new Vector3(-7, 3, 0);
 
 
 function Start() {
-    var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
-    timeToThrust = Mathf.Max(0.25f, 1f / memory.enemyReflexes);
+    //var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
+    timeToThrust = Mathf.Max(0.25f, 1f);
     timeToReset = new Array(timeToThrust*0.5f, timeToThrust*0.5f, 0, timeToThrust, 0, timeToThrust, 0, timeToThrust);
     
     // Change this to refer to just 'upperBody', get more symettry between player / enemies.
