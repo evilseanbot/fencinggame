@@ -2,6 +2,7 @@
 var walkingBackward: boolean = false;
 var timeTillNextWalkDecision: float = 1f;
 var timeTakenWalking: float = 0f;
+private var walkDecisionTime = 1f;
 private var walkingSpeed = 1.4f;
 private var chasingSpeed = 2.8f;
 var alive = true;
@@ -118,13 +119,16 @@ function makeWalkingDecision() {
 
 		if (random > 3) {
 		    walkingForward = true;
+		    timeTillNextWalkDecision = walkDecisionTime;
 		} else if (random > 2) {
 		    walkingBackward = true;
+		    timeTillNextWalkDecision = walkDecisionTime / 2f;		    
 		} 
 		
 		if (walkingBackward && closestOpponentZone == 2) {
 		    walkingForward = true;
 		    walkingBackward = false;
+		    timeTillNextWalkDecision = walkDecisionTime;		    
 		}
 	}
 }
