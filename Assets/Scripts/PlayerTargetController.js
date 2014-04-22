@@ -1,18 +1,30 @@
 ﻿var bloodSpoutObject : GameObject;
 
+function OnTriggerEnter(thing) {
+    if (thing.tag == "deadly") {
+        die(thing);
+    }
+}
+
 function OnCollisionStay (collision: Collision) {
-    if (collision.gameObject.name == "EnemySword") {
+    if (collision.gameObject.tag == "deadly") {
         if (madeImpact(collision)) {
-            die();
+            die(collision.gameObject);
 	     }
 	}
 }
 
-function die() {
-	var EnemySword = GameObject.Find("EnemySword");
+function die(collider) {
+    var EnemySword;
+    
+    if (collider.name == "SpearPoint") {
+        EnemySword = collider.transform.parent.gameObject;
+    } else {
+        EnemySword = collider;
+    }
+
 	var player = GameObject.Find("Player");
 	var upperBody = player.transform.FindChild("UpperBody");
-//	var bloodSpout = upperBody.FindChild("PlayerBloodSpout").gameObject;
 
     var bloodSpout = GameObject.Instantiate(bloodSpoutObject, transform.position, transform.rotation);
 
@@ -33,7 +45,14 @@ function die() {
 }
 
 function madeImpact(collision) {
-    var enemySword = collision.gameObject;
+    var enemySword;
+
+    if (collision.gameObject.name == "SpearPoint") {
+        enemySword = collision.gameObject.transform.parent.gameObject;
+    } else {
+        enemySword = collision.gameObject;
+    }
+    
     var enemy = enemySword.transform.parent.parent.gameObject;    
         
     if (enemy.GetComponent("EnemyTargetController").alive) {
@@ -41,5 +60,4 @@ function madeImpact(collision) {
     } else {
        return false;
     }
-    
 }

@@ -38,6 +38,15 @@ swordPositions["attack"]["4"] = new Hashtable();
 swordPositions["attack"]["4"]["position"] = new Vector3(-0.1f, 1.8f, 0f);
 swordPositions["attack"]["4"]["rotation"] = new Vector3(-7, 3, 0);
 
+swordPositions["pikeAttack"] = new Hashtable();
+swordPositions["pikeAttack"]["6"] = new Hashtable();
+swordPositions["pikeAttack"]["6"]["position"] = new Vector3(0.1f, 1.8f, 0f);
+swordPositions["pikeAttack"]["6"]["rotation"] = new Vector3(0, -3, 0);
+
+swordPositions["pikeAttack"]["4"] = new Hashtable();
+swordPositions["pikeAttack"]["4"]["position"] = new Vector3(-0.1f, 1.8f, 0f);
+swordPositions["pikeAttack"]["4"]["rotation"] = new Vector3(0, 3, 0);
+
 
 function Start() {
     //var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");
@@ -149,12 +158,20 @@ function thrust() {
 	enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
 	enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
 
-		
-	if (onRightSideNow) {
-	    selectedSwordPosition = swordPositions["attack"]["6"];
-    } else {
-        selectedSwordPosition = swordPositions["attack"]["4"];
-    }
+	if (enemy.GetComponent("EnemyTargetController").weapon == "Pike") {
+		if (onRightSideNow) {
+		    selectedSwordPosition = swordPositions["pikeAttack"]["6"];
+	    } else {
+	        selectedSwordPosition = swordPositions["pikeAttack"]["4"];
+	    }
+	
+	} else {
+		if (onRightSideNow) {
+		    selectedSwordPosition = swordPositions["attack"]["6"];
+	    } else {
+	        selectedSwordPosition = swordPositions["attack"]["4"];
+	    }
+	}
 
     setTargetToSwordPosition(selectedSwordPosition);    
     chasePos(posSpeed);			

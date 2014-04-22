@@ -13,6 +13,7 @@ var swordDrawSound: AudioClip;
 var swordDrawSoundTime: float = 0;
 var swordSheathSound: AudioClip;
 var swordSheathSoundTime: float = 0;
+var weapon = "Sword";
 
 
 function Start() {
@@ -66,15 +67,28 @@ function getClosestOpponentZone() {
         shortestDist = distance;
     }
     
-    if (shortestDist > 24) {
-        return 4;
-    } else if (shortestDist > 6) {
-        return 3;
-    } else if (shortestDist > 3) {
-        return 2;
-    } else {
-        return 1;
-    }    
+    if (weapon == "Sword") {
+	    if (shortestDist > 24) {
+	        return 4;
+	    } else if (shortestDist > 6) {
+	        return 3;
+	    } else if (shortestDist > 3) {
+	        return 2;
+	    } else {
+	        return 1;
+	    }    
+	} else if (weapon == "Pike") {
+	    if (shortestDist > 24) {
+	        return 4;
+	    } else if (shortestDist > 9) {
+	        return 3;
+	    } else if (shortestDist > 6) {
+	        return 2;
+	    } else {
+	        return 1;
+	    }    
+	
+	}
 }
 
 
