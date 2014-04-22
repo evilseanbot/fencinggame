@@ -15,250 +15,40 @@ Platform assembly: C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Man
 Loading C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Managed\LeapCSharp.NET3.5.dll (this message is harmless)
 Loading C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
-- Completed reload, in  0.279 seconds
+- Completed reload, in  0.507 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Managed\Boo.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Managed\System.Core.dll (this message is harmless)
-UnloadTime: 2.750930 ms
+UnloadTime: 4.507458 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.013816 ms (FindLiveObjects: 1.228905 ms CreateObjectMapping: 0.112851 ms MarkObjects: 1.388655 ms  DeleteObjects: 0.109919 ms)
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 5770.
+Total: 72.702652 ms (FindLiveObjects: 2.780979 ms CreateObjectMapping: 0.337088 ms MarkObjects: 2.353023 ms  DeleteObjects: 0.155353 ms)
 
-UnloadTime: 28.462683 ms
+UnloadTime: 45.065796 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5699.
-Total: 5.260037 ms (FindLiveObjects: 1.099932 ms CreateObjectMapping: 0.150223 ms MarkObjects: 1.401113 ms  DeleteObjects: 0.032975 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5767.
+Total: 7.659235 ms (FindLiveObjects: 1.753592 ms CreateObjectMapping: 0.212512 ms MarkObjects: 2.573597 ms  DeleteObjects: 0.041769 ms)
 
-UnloadTime: 29.322256 ms
+UnloadTime: 73.719048 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5699.
-Total: 4.887042 ms (FindLiveObjects: 1.203990 ms CreateObjectMapping: 0.170009 ms MarkObjects: 1.288262 ms  DeleteObjects: 0.031510 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5767.
+Total: 7.031225 ms (FindLiveObjects: 1.893557 ms CreateObjectMapping: 0.221305 ms MarkObjects: 2.274614 ms  DeleteObjects: 0.170009 ms)
 
-UnloadTime: 46.588486 ms
+UnloadTime: 112.613922 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5704.
-Total: 6.758613 ms (FindLiveObjects: 1.802687 ms CreateObjectMapping: 0.257945 ms MarkObjects: 2.281938 ms  DeleteObjects: 0.034441 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5772.
+Total: 7.413014 ms (FindLiveObjects: 1.635611 ms CreateObjectMapping: 0.145094 ms MarkObjects: 2.456348 ms  DeleteObjects: 0.061555 ms)
 
-UnloadTime: 31.549969 ms
+UnloadTime: 34.143394 ms
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 7.544907 ms (FindLiveObjects: 1.494911 ms CreateObjectMapping: 0.061555 ms MarkObjects: 3.121727 ms  DeleteObjects: 0.034441 ms)
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5770.
+Total: 9.039832 ms (FindLiveObjects: 1.604834 ms CreateObjectMapping: 0.064486 ms MarkObjects: 3.603182 ms  DeleteObjects: 0.041036 ms)
 
-UnloadTime: 30.165709 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.038271 ms (FindLiveObjects: 1.203257 ms CreateObjectMapping: 0.060822 ms MarkObjects: 2.194735 ms  DeleteObjects: 0.032975 ms)
-
-UnloadTime: 28.984434 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.947675 ms (FindLiveObjects: 1.105062 ms CreateObjectMapping: 0.059356 ms MarkObjects: 2.676185 ms  DeleteObjects: 0.047631 ms)
-
-UnloadTime: 29.014479 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.548028 ms (FindLiveObjects: 1.107993 ms CreateObjectMapping: 0.060089 ms MarkObjects: 2.072358 ms  DeleteObjects: 0.032243 ms)
-
-UnloadTime: 32.487217 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 7.090571 ms (FindLiveObjects: 1.157091 ms CreateObjectMapping: 0.246953 ms MarkObjects: 2.916543 ms  DeleteObjects: 0.035174 ms)
-
-UnloadTime: 41.592991 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5704.
-Total: 6.059522 ms (FindLiveObjects: 1.451676 ms CreateObjectMapping: 0.098195 ms MarkObjects: 2.174950 ms  DeleteObjects: 0.033708 ms)
-
-UnloadTime: 29.763401 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.631106 ms (FindLiveObjects: 1.182006 ms CreateObjectMapping: 0.062287 ms MarkObjects: 2.905551 ms  DeleteObjects: 0.034441 ms)
-
-UnloadTime: 28.386471 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.830888 ms (FindLiveObjects: 1.096268 ms CreateObjectMapping: 0.059356 ms MarkObjects: 2.245298 ms  DeleteObjects: 0.033708 ms)
-
-UnloadTime: 28.777052 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.562955 ms (FindLiveObjects: 1.830534 ms CreateObjectMapping: 0.061555 ms MarkObjects: 2.008604 ms  DeleteObjects: 0.032975 ms)
-
-UnloadTime: 45.956814 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5704.
-Total: 6.225135 ms (FindLiveObjects: 1.152694 ms CreateObjectMapping: 0.062287 ms MarkObjects: 2.223314 ms  DeleteObjects: 0.033708 ms)
-
-UnloadTime: 27.985628 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.417589 ms (FindLiveObjects: 1.111657 ms CreateObjectMapping: 0.058623 ms MarkObjects: 1.996146 ms  DeleteObjects: 0.033708 ms)
-
-UnloadTime: 45.410145 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5704.
-Total: 6.232463 ms (FindLiveObjects: 1.138038 ms CreateObjectMapping: 0.061555 ms MarkObjects: 2.040114 ms  DeleteObjects: 0.032243 ms)
-
-UnloadTime: 28.782181 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.839682 ms (FindLiveObjects: 1.160755 ms CreateObjectMapping: 0.061555 ms MarkObjects: 2.267282 ms  DeleteObjects: 0.032975 ms)
-
-UnloadTime: 30.275627 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.376824 ms (FindLiveObjects: 1.080147 ms CreateObjectMapping: 0.058623 ms MarkObjects: 2.100937 ms  DeleteObjects: 0.033708 ms)
-
-UnloadTime: 30.077038 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.576607 ms (FindLiveObjects: 0.994409 ms CreateObjectMapping: 0.055692 ms MarkObjects: 2.058434 ms  DeleteObjects: 0.029311 ms)
-
-UnloadTime: 28.630491 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.961327 ms (FindLiveObjects: 1.439951 ms CreateObjectMapping: 0.060822 ms MarkObjects: 2.094342 ms  DeleteObjects: 0.033708 ms)
-
-UnloadTime: 28.426043 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.137199 ms (FindLiveObjects: 1.180540 ms CreateObjectMapping: 0.064486 ms MarkObjects: 2.309785 ms  DeleteObjects: 0.035907 ms)
-
-UnloadTime: 30.086565 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 5.443970 ms (FindLiveObjects: 1.173945 ms CreateObjectMapping: 0.062287 ms MarkObjects: 1.925065 ms  DeleteObjects: 0.032243 ms)
-
-UnloadTime: 51.655800 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5704.
-Total: 6.632571 ms (FindLiveObjects: 1.582847 ms CreateObjectMapping: 0.066684 ms MarkObjects: 2.517167 ms  DeleteObjects: 0.032975 ms)
-
-UnloadTime: 32.101765 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 7.415202 ms (FindLiveObjects: 1.552070 ms CreateObjectMapping: 0.060089 ms MarkObjects: 3.208930 ms  DeleteObjects: 0.035907 ms)
-
-UnloadTime: 37.454868 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 7.192431 ms (FindLiveObjects: 1.374732 ms CreateObjectMapping: 0.061555 ms MarkObjects: 2.477596 ms  DeleteObjects: 0.135567 ms)
-
-UnloadTime: 34.773556 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.062453 ms (FindLiveObjects: 1.326367 ms CreateObjectMapping: 0.061555 ms MarkObjects: 2.439490 ms  DeleteObjects: 0.032975 ms)
-
-UnloadTime: 34.359524 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 6.087368 ms (FindLiveObjects: 1.351283 ms CreateObjectMapping: 0.060822 ms MarkObjects: 2.155897 ms  DeleteObjects: 0.032243 ms)
-
-UnloadTime: 42.571278 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 8.158261 ms (FindLiveObjects: 1.694966 ms CreateObjectMapping: 0.060089 ms MarkObjects: 3.260959 ms  DeleteObjects: 0.035174 ms)
-
-UnloadTime: 42.787453 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 5702.
-Total: 7.397615 ms (FindLiveObjects: 1.383526 ms CreateObjectMapping: 0.062287 ms MarkObjects: 3.154703 ms  DeleteObjects: 0.033708 ms)
-
-D3D device reset failed [invalid call]
- 
-(Filename:  Line: 342)
-
-Switching to resolution 640x480 failed, trying lower one
-All resolution switches have failed
-Screen: could not switch resolution (640x480 fs=0 hz=0)
-Crash!!!
-Crash in winutils::ProcessInternalCrash(PEXCEPTION_POINTERS pExInfo)SymInit: Symbol-SearchPath: '.;C:\Users\Seanna\Documents\FencingGame;C:\Users\Seanna\Documents\FencingGame;C:\Windows;C:\Windows\system32;SRV*C:\websymbols*http://msdl.microsoft.com/download/symbols;', symOptions: 530, UserName: 'Seanna'
-OS-Version: 6.2.9200 () 0x300-0x1
-C:\Users\Seanna\Documents\FencingGame\FencingNoMusic.exe:FencingNoMusic.exe (00D20000), size: 11948032 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Seanna\Documents\FencingGame\FencingNoMusic.exe', fileVersion: 4.3.3.30826
-C:\Windows\SYSTEM32\ntdll.dll:ntdll.dll (772B0000), size: 1474560 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ntdll.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\KERNEL32.DLL:KERNEL32.DLL (76000000), size: 1310720 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\KERNEL32.DLL', fileVersion: 6.3.9600.17056
-C:\Windows\SYSTEM32\KERNELBASE.dll:KERNELBASE.dll (76150000), size: 847872 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\KERNELBASE.dll', fileVersion: 6.3.9600.17055
-C:\Windows\SYSTEM32\USER32.dll:USER32.dll (76560000), size: 1372160 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\USER32.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\VERSION.dll:VERSION.dll (72520000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\VERSION.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\ole32.dll:ole32.dll (76F10000), size: 1097728 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ole32.dll', fileVersion: 6.3.9600.17042
-C:\Windows\SYSTEM32\SHLWAPI.dll:SHLWAPI.dll (766F0000), size: 266240 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SHLWAPI.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\ADVAPI32.dll:ADVAPI32.dll (77060000), size: 491520 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ADVAPI32.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\GDI32.dll:GDI32.dll (76B90000), size: 1081344 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\GDI32.dll', fileVersion: 6.3.9600.17042
-C:\Windows\SYSTEM32\SHELL32.dll:SHELL32.dll (74D00000), size: 18534400 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SHELL32.dll', fileVersion: 6.3.9600.17055
-C:\Windows\SYSTEM32\OPENGL32.dll:OPENGL32.dll (6B180000), size: 868352 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\OPENGL32.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\WINMM.dll:WINMM.dll (715F0000), size: 131072 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINMM.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\WS2_32.dll:WS2_32.dll (768C0000), size: 315392 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WS2_32.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\OLEAUT32.dll:OLEAUT32.dll (75F70000), size: 552960 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\OLEAUT32.dll', fileVersion: 6.3.9600.16506
-C:\Windows\SYSTEM32\IMM32.dll:IMM32.dll (766B0000), size: 151552 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\IMM32.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\DNSAPI.dll:DNSAPI.dll (74AC0000), size: 507904 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DNSAPI.dll', fileVersion: 6.3.9600.17039
-C:\Windows\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (74A20000), size: 122880 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\IPHLPAPI.DLL', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\WINHTTP.dll:WINHTTP.dll (6CD30000), size: 606208 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINHTTP.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\HID.DLL:HID.DLL (6F710000), size: 40960 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\HID.DLL', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\MSACM32.dll:MSACM32.dll (715B0000), size: 86016 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSACM32.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\msvcrt.dll:msvcrt.dll (76AD0000), size: 778240 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\msvcrt.dll', fileVersion: 7.0.9600.16384
-C:\Windows\SYSTEM32\combase.dll:combase.dll (76D60000), size: 1368064 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\combase.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\RPCRT4.dll:RPCRT4.dll (76220000), size: 724992 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\RPCRT4.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\sechost.dll:sechost.dll (77020000), size: 253952 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\sechost.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\GLU32.dll:GLU32.dll (68C10000), size: 147456 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\GLU32.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\DDRAW.dll:DDRAW.dll (68B20000), size: 946176 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DDRAW.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\WINMMBASE.dll:WINMMBASE.dll (713C0000), size: 131072 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINMMBASE.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\NSI.dll:NSI.dll (76140000), size: 28672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\NSI.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\MSCTF.dll:MSCTF.dll (770E0000), size: 1011712 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSCTF.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\WINNSI.DLL:WINNSI.DLL (74A10000), size: 32768 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\WINNSI.DLL', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\SspiCli.dll:SspiCli.dll (74CE0000), size: 118784 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\SspiCli.dll', fileVersion: 6.3.9600.16408
-C:\Windows\SYSTEM32\DCIMAN32.dll:DCIMAN32.dll (68B00000), size: 28672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DCIMAN32.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\cfgmgr32.dll:cfgmgr32.dll (75EB0000), size: 237568 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\cfgmgr32.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\DEVOBJ.dll:DEVOBJ.dll (72550000), size: 126976 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\DEVOBJ.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\CRYPTBASE.dll:CRYPTBASE.dll (74CD0000), size: 36864 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\CRYPTBASE.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\bcryptPrimitives.dll:bcryptPrimitives.dll (74C70000), size: 339968 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\bcryptPrimitives.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\shcore.dll:shcore.dll (74B90000), size: 483328 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\shcore.dll', fileVersion: 6.3.9600.17031
-C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Mono\mono.dll:mono.dll (10000000), size: 2285568 (result: 0), SymType: '-exported-', PDB: 'C:\Users\Seanna\Documents\FencingGame\FencingNoMusic_Data\Mono\mono.dll'
-C:\Windows\SYSTEM32\PSAPI.DLL:PSAPI.DLL (76EB0000), size: 24576 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\PSAPI.DLL', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\MSWSOCK.dll:MSWSOCK.dll (74C10000), size: 282624 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MSWSOCK.dll', fileVersion: 6.3.9600.16384
-C:\Windows\system32\uxtheme.dll:uxtheme.dll (71CD0000), size: 897024 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\uxtheme.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\kernel.appcore.dll:kernel.appcore.dll (73720000), size: 36864 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\kernel.appcore.dll', fileVersion: 6.3.9600.16384
-C:\Fraps\FRAPS32.DLL:FRAPS32.DLL (6A290000), size: 286720 (result: 0), SymType: '-exported-', PDB: 'C:\Fraps\FRAPS32.DLL', fileVersion: 3.5.5.15172
-C:\Windows\system32\dwmapi.dll:dwmapi.dll (71590000), size: 98304 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\system32\dwmapi.dll', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\d3d9.dll:d3d9.dll (6CDF0000), size: 1802240 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\d3d9.dll', fileVersion: 6.3.9600.16404
-C:\Windows\SYSTEM32\aticfx32.dll:aticfx32.dll (6F440000), size: 1032192 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\aticfx32.dll', fileVersion: 8.17.10.1230
-C:\Windows\SYSTEM32\atiu9pag.dll:atiu9pag.dll (6C360000), size: 110592 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\atiu9pag.dll', fileVersion: 8.14.1.6340
-C:\Windows\SYSTEM32\atiumdag.dll:atiumdag.dll (6BAA0000), size: 6172672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\atiumdag.dll', fileVersion: 9.14.10.984
-C:\Windows\SYSTEM32\atiumdva.dll:atiumdva.dll (6B4B0000), size: 6193152 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\atiumdva.dll', fileVersion: 8.14.10.415
-C:\Windows\SYSTEM32\MMDevAPI.DLL:MMDevAPI.DLL (6F570000), size: 303104 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\MMDevAPI.DLL', fileVersion: 6.3.9600.17031
-C:\Windows\SYSTEM32\wdmaud.drv:wdmaud.drv (6A250000), size: 212992 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\wdmaud.drv', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\ksuser.dll:ksuser.dll (6A8E0000), size: 28672 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\ksuser.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\AVRT.dll:AVRT.dll (6B2D0000), size: 36864 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\AVRT.dll', fileVersion: 6.3.9600.16384
-C:\Windows\SYSTEM32\AUDIOSES.DLL:AUDIOSES.DLL (6F600000), size: 348160 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\AUDIOSES.DLL', fileVersion: 6.3.9600.17041
-C:\Windows\SYSTEM32\powrprof.dll:powrprof.dll (6F5C0000), size: 253952 (result: 0), SymType: '-exported-', PDB: 'C:\Windows\SYSTEM32\powrprof.dll', fileVersion: 6.3.9600.17031

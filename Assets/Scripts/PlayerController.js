@@ -152,7 +152,7 @@ function lunging() {
 }
 
 function restartGame() {
-    var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");   
-    memory.enemyReflexes = 1;
+    //var memory = GameObject.Find("PersistentMemory").GetComponent("PersistentMemoryController");   
+    //memory.enemyReflexes = 1;
     Application.LoadLevel("demo");
 }
