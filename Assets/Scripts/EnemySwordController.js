@@ -87,6 +87,12 @@ function advancePhaseClock() {
 }
 
 function FixedUpdate() {
+
+    snapToArmsLength();
+
+    followEnemyMovement();
+
+
     closestOpponentZone = enemy.GetComponent("EnemyTargetController").closestOpponentZone;
     if (closestOpponentZone == 4) {
         return;
@@ -106,9 +112,7 @@ function FixedUpdate() {
     if (!alive) {
         return;
     }
-    
-    followEnemyMovement();
-        
+            
     // Phase 0 is waiting.
     if (phase == 0) {
         startingPos = transform.position;
