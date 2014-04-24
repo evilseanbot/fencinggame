@@ -45,7 +45,7 @@ function FixedUpdate() {
 	        chase();
 	    }
 
-	    if (closestOpponentZone == 1 | closestOpponentZone == 2) {
+	    if (closestOpponentZone == 1 || closestOpponentZone == 2) {
 	        walk();
 		}
 	}

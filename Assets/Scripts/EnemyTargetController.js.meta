@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: e61e9378932f0b347ab325809c6a4b7c
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bloodSpoutObject: {fileID: 100000, guid: e772d5bd25af4cf4293f5a592f7e460a, type: 2}
+  - swordDrawSound: {fileID: 8300000, guid: 5e480b315085b1147b76d769c1bc00b3, type: 3}
+  - swordSheathSound: {fileID: 8300000, guid: 640748c956ff08e439c4739a47dc5c55, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

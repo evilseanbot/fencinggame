@@ -2,7 +2,9 @@ fileFormatVersion: 2
 guid: dcf5b9a5bbc71be4e88f6064bee3e4bd
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - swordDraw: {fileID: 8300000, guid: 5e480b315085b1147b76d769c1bc00b3, type: 3}
+  - swordSheath: {fileID: 8300000, guid: 640748c956ff08e439c4739a47dc5c55, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
