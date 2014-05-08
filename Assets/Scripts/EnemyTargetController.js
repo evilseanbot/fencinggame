@@ -173,9 +173,13 @@ function OnCollisionStay (collision: Collision) {
 	        alive = false;        
 	        var bloodSpout = GameObject.Instantiate(bloodSpoutObject, transform.position, transform.rotation);
 	        
+	        contactPosition = collision.contacts[0].point;
+	        
 	        // Doesn't support multiple allies yet.
 	        var EnemySword = GameObject.Find("Sword");
-	        bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
+//	        bloodSpout.transform.position = EnemySword.transform.Find("Tip").position;
+	        bloodSpout.transform.position = contactPosition;
+
 	        bloodSpout.transform.rotation = EnemySword.transform.Find("Tip").rotation;
 	        bloodSpout.transform.rotation.z += 180;
 	        bloodSpout.particleSystem.Play();    
