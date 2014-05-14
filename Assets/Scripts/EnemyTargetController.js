@@ -163,7 +163,7 @@ function getZVelByWalkingState() {
 }
 
 function OnCollisionStay (collision: Collision) {
-
+/*
     if (collision.gameObject.name == "Sword") {
         if (collision.gameObject.GetComponent("SwordController").swordUp) {
             if (alive) {
@@ -199,6 +199,7 @@ function OnCollisionStay (collision: Collision) {
 	        //Invoke("advanceLevel", 5f);        
 	    }
     }
+    */
 }
 
 function advanceLevel() {

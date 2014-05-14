@@ -106,8 +106,26 @@ public class SwordController : MonoBehaviour {
 	}
 
 	void moveWithMovePos(Vector3 targetPos, Quaternion targetRot) {
+		Vector3 sPos = transform.position;
+		Vector3 ePos = targetPos;
+		Quaternion sRot = transform.rotation;
+		Quaternion eRot = targetRot;
+
+		Vector3 tPos;
+		Quaternion tRot;
+        /*
+		for (int i = 0; i < 10; i++) {
+			tPos = Vector3.Lerp (sPos, ePos, 0.1f * i);
+			tRot = Quaternion.Lerp (sRot, eRot, 0.1f * i);
+
+			rigidbody.MovePosition (tPos);
+			rigidbody.MoveRotation (tRot);
+		}
+		*/
+
 		rigidbody.MovePosition (targetPos);
 		rigidbody.MoveRotation (targetRot);
+
 	}
 
 
