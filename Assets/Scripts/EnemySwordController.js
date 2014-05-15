@@ -202,8 +202,8 @@ function snapToArmsLength() {
 function thrust() {
     var selectedSwordPosition;
 
-	enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
-	enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
+	//enemyUpperBody.GetComponent("Animator").SetBool("lunging", true);    
+	//enemyUpperBody.GetComponent("Animator").SetBool("recovering", false);    
 
 	if (enemy.GetComponent("EnemyTargetController").weapon == "Pike") {
 		if (onRightSideNow) {
@@ -228,8 +228,8 @@ function thrust() {
 function recover() {
     var selectedSwordPosition;
 
-	enemyUpperBody.GetComponent("Animator").SetBool("lunging", false);    
-	enemyUpperBody.GetComponent("Animator").SetBool("recovering", true);    
+	//enemyUpperBody.GetComponent("Animator").SetBool("lunging", false);    
+	//enemyUpperBody.GetComponent("Animator").SetBool("recovering", true);    
 	
 	if (enemy.GetComponent("EnemyTargetController").weapon == "Pike") {
 		if (onRightSideNow) {

@@ -2,14 +2,14 @@
 
 function OnTriggerEnter(thing) {
     if (thing.tag == "deadly") {
-        die(thing);
+        //die(thing);
     }
 }
 
 function OnCollisionStay (collision: Collision) {
     if (collision.gameObject.tag == "deadly") {
         if (madeImpact(collision)) {
-            die(collision.gameObject);
+            //die(collision.gameObject);
 	     }
 	}
 }

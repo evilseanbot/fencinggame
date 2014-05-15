@@ -42,11 +42,11 @@ function FixedUpdate() {
 	    closestOpponentZone = newZone;
 	    
 	    if (closestOpponentZone == 3) {
-	        chase();
+	        //chase();
 	    }
 
 	    if (closestOpponentZone == 1 || closestOpponentZone == 2) {
-	        walk();
+	        //walk();
 		}
 	}
 }
